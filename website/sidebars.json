@@ -1,0 +1,27 @@
+{
+    "docs": {
+        "快速开始": [
+            "build",
+            "start"
+        ],
+
+        "API 中文文档": [
+            "sign",
+            "key",
+            "account",
+            "asset",
+            "transaction",
+            "wallet",
+            "access_token",
+            "block",
+            "mining",
+            "gas",
+            "work",
+            "message",
+            "feed",
+            "net_info",
+            "decode_program",
+            "other"
+        ]
+    }
+}
