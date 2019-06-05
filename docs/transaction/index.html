@@ -1,0 +1,968 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Transaction API · Bytom Java API文档</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;h2&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;get-transaction&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#get-transaction&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;get-transaction&lt;/h2&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Transaction API · Bytom Java API文档"/><meta property="og:type" content="website"/><meta property="og:url" content="https://bytomfans.github.io/java-en-docs/"/><meta property="og:description" content="&lt;h2&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;get-transaction&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#get-transaction&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;get-transaction&lt;/h2&gt;
+"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/java-en-docs/"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/java-en-docs/css/main.css"/><script src="/java-en-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/java-en-docs/"><h2 class="headerTitle">Bytom Java API文档</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/java-en-docs/docs/start" target="_self">Docs</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>API 中文文档</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">快速开始</h3><ul class=""><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/build">搭建节点</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/start">SDK环境配置</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">API 中文文档</h3><ul class=""><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/sign">tx-signer</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/key">Bytom.Key.API</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/account">Bytom.Account.API</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/asset">Bytom.Asset.API</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/java-en-docs/docs/transaction">Bytom.Transaction.API</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/wallet">Bytom.Wallet.API</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/access_token">Bytom.Access_token.API</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/block">Bytom.Block.API</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/gas">Bytom.Gas.API</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/message">Bytom.Message.API</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/feed">Bytom.Feed.API</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/net_info">Bytom.New_info.API</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/other">Bytom.Other.API</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Transaction API</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="get-transaction"></a><a href="#get-transaction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>get-transaction</h2>
+<p>Query the account related transaction by transaction ID.</p>
+<h4><a class="anchor" aria-hidden="true" id="parameters"></a><a href="#parameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<ul>
+<li><code>String</code> - <em>tx_id</em>, transaction id, hash of transaction.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="returns"></a><a href="#returns" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Returns</h4>
+<ul>
+<li><code>String</code> - <em>tx_id</em>, transaction id, hash of the transaction.</li>
+<li><code>Integer</code> - <em>block_time</em>, the unix timestamp for when the requst was responsed.</li>
+<li><code>String</code> - <em>block_hash</em>, hash of the block where this transaction was in.</li>
+<li><code>Integer</code> - <em>block_height</em>, block height where this transaction was in.</li>
+<li><code>Integer</code> - <em>block_index</em>, position of the transaction in the block.</li>
+<li><code>Integer</code> - <em>block_transactions_count</em>, transactions count where this transaction was in the block.</li>
+<li><code>Boolean</code> - <em>status_fail</em>, whether the state of the transaction request has failed.</li>
+<li><code>Integer</code> - <em>size</em>, size of transaction.</li>
+<li><code>Array of Object</code> -  <em>inputs</em>, object of inputs for the transaction.
+<ul>
+<li><code>String</code> - <em>type</em>, the type of input action, available option include: 'spend', 'issue', 'coinbase'.</li>
+<li><code>String</code> - <em>asset_id</em>, asset id.</li>
+<li><code>String</code> - <em>asset_alias</em>, name of asset.</li>
+<li><code>Object</code> - <em>asset_definition</em>, definition of asset(json object).</li>
+<li><code>Integer</code> - <em>amount</em>, amount of asset.</li>
+<li><code>Object</code> - <em>issuance_program</em>, issuance program, it only exist when type is 'issue'.</li>
+<li><code>Object</code> - <em>control_program</em>, control program of account, it only exist when type is 'spend'.</li>
+<li><code>String</code> - <em>address</em>, address of account, it only exist when type is 'spend'.</li>
+<li><code>String</code> - <em>spent_output_id</em>, the front of outputID to be spent in this input, it only exist when type is 'spend'.</li>
+<li><code>String</code> - <em>account_id</em>, account id.</li>
+<li><code>String</code> - <em>account_alias</em>, name of account.</li>
+<li><code>Object</code> - <em>arbitrary</em>, arbitrary infomation can be set by miner, it only exist when type is 'coinbase'.</li>
+</ul></li>
+<li><code>Array of Object</code> - <em>outputs</em>, object of outputs for the transaction.
+<ul>
+<li><code>String</code> - <em>type</em>, the type of output action, available option include: 'retire', 'control'.</li>
+<li><code>String</code> - <em>id</em>, outputid related to utxo.s
+<ul>
+<li><code>Integer</code> - <em>position</em>, position of outputs.</li>
+</ul></li>
+<li><code>String</code> - <em>asset_id</em>, asset id.</li>
+<li><code>String</code> - <em>asset_alias</em>, name of asset.</li>
+<li><code>Object</code> - <em>asset_definition</em>, definition of asset(json object).</li>
+<li><code>Integer</code> - <em>amount</em>, amount of asset.</li>
+<li><code>String</code> - <em>account_id</em>, account id.</li>
+<li><code>String</code> - <em>account_alias</em>, name of account.</li>
+<li><code>Object</code> - <em>control_program</em>, control program of account.</li>
+<li><code>String</code> - <em>address</em>, address of account.</li>
+</ul></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="example"></a><a href="#example" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h4>
+<pre><code class="hljs css language-java">Client client = TestUtils.generateClient();
+Transaction.QueryBuilder builder = <span class="hljs-keyword">new</span> Transaction.QueryBuilder();
+builder.setAccountId(<span class="hljs-string">"0ER7MEFGG0A02"</span>);
+Transaction tx = builder.get(client);
+</code></pre>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// Result</span>
+{
+  <span class="hljs-string">"block_hash"</span>: <span class="hljs-string">"1fa9bb389cf974a9b37b63ca38c0cf3453c30f394b9e8ae7f04f2d1b52c329b4"</span>,
+  <span class="hljs-string">"block_height"</span>: <span class="hljs-number">530</span>,
+  <span class="hljs-string">"block_index"</span>: <span class="hljs-number">1</span>,
+  <span class="hljs-string">"block_time"</span>: <span class="hljs-number">1528772056</span>,
+  <span class="hljs-string">"block_transactions_count"</span>: <span class="hljs-number">2</span>,
+  <span class="hljs-string">"inputs"</span>: [
+    {
+      <span class="hljs-string">"account_alias"</span>: <span class="hljs-string">"default"</span>,
+      <span class="hljs-string">"account_id"</span>: <span class="hljs-string">"0ER7MEFGG0A02"</span>,
+      <span class="hljs-string">"address"</span>: <span class="hljs-string">"sm1q4pkg8msjumtep7ecsdzuct3tsuzk5pmnm3p8nr"</span>,
+      <span class="hljs-string">"amount"</span>: <span class="hljs-number">41250000000</span>,
+      <span class="hljs-string">"asset_alias"</span>: <span class="hljs-string">"BTM"</span>,
+      <span class="hljs-string">"asset_definition"</span>: {
+        <span class="hljs-string">"decimals"</span>: <span class="hljs-number">8</span>,
+        <span class="hljs-string">"description"</span>: <span class="hljs-string">"Bytom Official Issue"</span>,
+        <span class="hljs-string">"name"</span>: <span class="hljs-string">"BTM"</span>,
+        <span class="hljs-string">"symbol"</span>: <span class="hljs-string">"BTM"</span>
+      },
+      <span class="hljs-string">"asset_id"</span>: <span class="hljs-string">"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"</span>,
+      <span class="hljs-string">"control_program"</span>: <span class="hljs-string">"0014a86c83ee12e6d790fb388345cc2e2b87056a0773"</span>,
+      <span class="hljs-string">"spent_output_id"</span>: <span class="hljs-string">"002025b727148d04197cc7b9cf7eafd9986041f07641ca82dc0a1d9e227b52f6"</span>,
+      <span class="hljs-string">"type"</span>: <span class="hljs-string">"spend"</span>
+    }
+  ],
+  <span class="hljs-string">"outputs"</span>: [
+    {
+      <span class="hljs-string">"account_alias"</span>: <span class="hljs-string">"default"</span>,
+      <span class="hljs-string">"account_id"</span>: <span class="hljs-string">"0ER7MEFGG0A02"</span>,
+      <span class="hljs-string">"address"</span>: <span class="hljs-string">"sm1qmt6jxrr8etssufr8qp98emyaly3lknxyndh5cj"</span>,
+      <span class="hljs-string">"amount"</span>: <span class="hljs-number">29450000000</span>,
+      <span class="hljs-string">"asset_alias"</span>: <span class="hljs-string">"BTM"</span>,
+      <span class="hljs-string">"asset_definition"</span>: {
+        <span class="hljs-string">"decimals"</span>: <span class="hljs-number">8</span>,
+        <span class="hljs-string">"description"</span>: <span class="hljs-string">"Bytom Official Issue"</span>,
+        <span class="hljs-string">"name"</span>: <span class="hljs-string">"BTM"</span>,
+        <span class="hljs-string">"symbol"</span>: <span class="hljs-string">"BTM"</span>
+      },
+      <span class="hljs-string">"asset_id"</span>: <span class="hljs-string">"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"</span>,
+      <span class="hljs-string">"control_program"</span>: <span class="hljs-string">"0014daf5230c67cae10e2467004a7cec9df923fb4cc4"</span>,
+      <span class="hljs-string">"id"</span>: <span class="hljs-string">"35a46dd36eb27b1ffdfdefbe5366175b6325e8f56e5bc3dd2aa1a47197e26e6c"</span>,
+      <span class="hljs-string">"position"</span>: <span class="hljs-number">0</span>,
+      <span class="hljs-string">"type"</span>: <span class="hljs-string">"control"</span>
+    },
+    {
+      <span class="hljs-string">"account_alias"</span>: <span class="hljs-string">"alice"</span>,
+      <span class="hljs-string">"account_id"</span>: <span class="hljs-string">"0ER7OAK400A02"</span>,
+      <span class="hljs-string">"address"</span>: <span class="hljs-string">"sm1qxe4jwhkekgnxkezu7xutu5gqnnpmyc8ppq98me"</span>,
+      <span class="hljs-string">"amount"</span>: <span class="hljs-number">11700000000</span>,
+      <span class="hljs-string">"asset_alias"</span>: <span class="hljs-string">"BTM"</span>,
+      <span class="hljs-string">"asset_definition"</span>: {
+        <span class="hljs-string">"decimals"</span>: <span class="hljs-number">8</span>,
+        <span class="hljs-string">"description"</span>: <span class="hljs-string">"Bytom Official Issue"</span>,
+        <span class="hljs-string">"name"</span>: <span class="hljs-string">"BTM"</span>,
+        <span class="hljs-string">"symbol"</span>: <span class="hljs-string">"BTM"</span>
+      },
+      <span class="hljs-string">"asset_id"</span>: <span class="hljs-string">"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"</span>,
+      <span class="hljs-string">"control_program"</span>: <span class="hljs-string">"0014366b275ed9b2266b645cf1b8be51009cc3b260e1"</span>,
+      <span class="hljs-string">"id"</span>: <span class="hljs-string">"ae791bbde0cc5b370e28a505933b85082d67be8db81bdcc56b8202f200b883e7"</span>,
+      <span class="hljs-string">"position"</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-string">"type"</span>: <span class="hljs-string">"control"</span>
+    }
+  ],
+  <span class="hljs-string">"size"</span>: <span class="hljs-number">332</span>,
+  <span class="hljs-string">"status_fail"</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-string">"tx_id"</span>: <span class="hljs-string">"15b8d66e227feff47b3de0f278934ea16d6c828371ec6c13c8f84713dd11703b"</span>
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="list-transactions"></a><a href="#list-transactions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>list-transactions</h2>
+<p>Returns the sub list of all the account related transactions.</p>
+<h4><a class="anchor" aria-hidden="true" id="parameters-1"></a><a href="#parameters-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<p><code>Object</code>:</p>
+<p>optional:</p>
+<ul>
+<li><code>String</code> - <em>id</em>, transaction id, hash of transaction.</li>
+<li><code>String</code> - <em>account_id</em>, id of account.</li>
+<li><code>Boolean</code> - <em>detail</em> , flag of detail transactions, default false (only return transaction summary)</li>
+<li><code>Boolean</code> - <em>unconfirmed</em>, flag of unconfirmed transactions(query result include all confirmed and unconfirmed transactions), default false.</li>
+<li><code>Integer</code> - <em>from</em>, the start position of first transaction</li>
+<li><code>Integer</code> - <em>count</em>, the number of returned</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="returns-1"></a><a href="#returns-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Returns</h4>
+<ul>
+<li><code>Array of Object</code>, transaction array.</li>
+</ul>
+<p>optional:</p>
+<ul>
+<li><code>Object</code>:(summary transaction)
+<ul>
+<li><p><code>String</code> - <em>tx_id</em>, transaction id, hash of the transaction.</p></li>
+<li><p><code>Integer</code> - <em>block_time</em>, the unix timestamp for when the requst was responsed.</p></li>
+<li><p><code>Array of Object</code>- <em>inputs</em>, object of summary inputs for the transaction.</p>
+<ul>
+<li><code>String</code> - <em>type</em>, the type of input action, available option include: 'spend', 'issue', 'coinbase'.</li>
+<li><code>String</code> - <em>asset_id</em>, asset id.</li>
+<li><code>String</code> - <em>asset_alias</em>, name of asset.</li>
+<li><code>Integer</code> - <em>amount</em>, amount of asset.</li>
+<li><code>String</code> - <em>account_id</em>, account id.</li>
+<li><code>String</code> - <em>account_alias</em>, name of account.</li>
+<li><code>Object</code> - <em>arbitrary</em>, arbitrary infomation can be set by miner, it only exist when type is 'coinbase'.</li>
+</ul></li>
+<li><p><code>Array of Object</code>- <em>outputs</em>, object of summary outputs for the transaction.</p>
+<ul>
+<li><code>String</code> - <em>type</em>, the type of output action, available option include: 'retire', 'control'.</li>
+<li><code>String</code> - <em>asset_id</em>, asset id.</li>
+<li><code>String</code> - <em>asset_alias</em>, name of asset.</li>
+<li><code>Integer</code> - <em>amount</em>, amount of asset.</li>
+<li><code>String</code> - <em>account_id</em>, account id.</li>
+<li><code>String</code> - <em>account_alias</em>, name of account.</li>
+<li><code>Object</code> - <em>arbitrary</em>, arbitrary infomation can be set by miner, it only exist when type is input 'coinbase'(this place is empty).</li>
+</ul></li>
+</ul></li>
+<li><code>Object</code>:(detail transaction)
+<ul>
+<li><code>String</code> - <em>tx_id</em>, transaction id, hash of the transaction.</li>
+<li><code>Integer</code> - <em>block_time</em>, the unix timestamp for when the requst was responsed.</li>
+<li><code>String</code> - <em>block_hash</em>, hash of the block where this transaction was in.</li>
+<li><code>Integer</code> - <em>block_height</em>, block height where this transaction was in.</li>
+<li><code>Integer</code> - <em>block_index</em>, position of the transaction in the block.</li>
+<li><code>Integer</code> - <em>block_transactions_count</em>, transactions count where this transaction was in the block.</li>
+<li><code>Boolean</code> - <em>status_fail</em>, whether the state of the transaction request has failed.</li>
+<li><code>Integer</code> - <em>size</em>, size of transaction.</li>
+<li><code>Array of Object</code> - <em>inputs</em>, object of inputs for the transaction.
+<ul>
+<li><code>String</code> - <em>type</em>, the type of input action, available option include: 'spend', 'issue', 'coinbase'.
+<ul>
+<li><code>String</code> - <em>asset_id</em>, asset id.</li>
+</ul></li>
+<li><code>String</code> - <em>asset_alias</em>, name of asset.</li>
+<li><code>Object</code> - <em>asset_definition</em>, definition of asset(json object).</li>
+<li><code>Integer</code> - <em>amount</em>, amount of asset.</li>
+<li><code>Object</code> - <em>issuance_program</em>, issuance program, it only exist when type is 'issue'.</li>
+<li><code>Object</code> - <em>control_program</em>, control program of account, it only exist when type is 'spend'.</li>
+<li><code>String</code> - <em>address</em>, address of account, it only exist when type is 'spend'.</li>
+<li><code>String</code> - <em>spent_output_id</em>, the front of outputID to be spent in this input, it only exist when type is 'spend'.</li>
+<li><code>String</code> - <em>account_id</em>, account id.</li>
+<li><code>String</code> - <em>account_alias</em>, name of account.</li>
+<li><code>Object</code> - <em>arbitrary</em>, arbitrary infomation can be set by miner, it only exist when type is 'coinbase'.</li>
+<li><code>String</code> - <em>input_id</em>, hash of input action.</li>
+<li><code>Array of String</code> - <em>witness_arguments</em>, witness arguments.</li>
+</ul></li>
+</ul></li>
+<li><code>Array of Object</code> - <em>outputs</em>, object of outputs for the transaction.
+<ul>
+<li><code>String</code> - <em>type</em>, the type of output action, available option include: 'retire', 'control'.</li>
+<li><code>String</code> - <em>id</em>, outputid related to utxo.</li>
+<li><code>Integer</code> - <em>position</em>, position of outputs.</li>
+<li><code>String</code> - <em>asset_id</em>, asset id.</li>
+<li><code>String</code> - <em>asset_alias</em>, name of asset.</li>
+<li><code>Object</code> - <em>asset_definition</em>, definition of asset(json object).</li>
+<li><code>Integer</code> - <em>amount</em>, amount of asset.</li>
+<li><code>String</code> - <em>account_id</em>, account id.</li>
+<li><code>String</code> - <em>account_alias</em>, name of account.</li>
+<li><code>Object</code> - <em>control_program</em>, control program of account.</li>
+<li><code>String</code> - <em>address</em>, address of account.</li>
+</ul></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="example-1"></a><a href="#example-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h4>
+<p>list all the available transactions:</p>
+<pre><code class="hljs css language-java">Client client = TestUtils.generateClient();
+Transaction.QueryBuilder transaction = <span class="hljs-keyword">new</span> Transaction.QueryBuilder();
+List&lt;Transaction&gt; transactionList = transaction.list(client);
+</code></pre>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// Result</span>
+[
+  {
+    <span class="hljs-string">"block_time"</span>: <span class="hljs-number">1521771059</span>,
+    <span class="hljs-string">"inputs"</span>: [
+      {
+        <span class="hljs-string">"arbitrary"</span>: <span class="hljs-string">"06"</span>,
+        <span class="hljs-string">"asset_id"</span>: <span class="hljs-string">"0000000000000000000000000000000000000000000000000000000000000000"</span>,
+        <span class="hljs-string">"type"</span>: <span class="hljs-string">"coinbase"</span>
+      }
+    ],
+    <span class="hljs-string">"outputs"</span>: [
+      {
+        <span class="hljs-string">"account_alias"</span>: <span class="hljs-string">"default"</span>,
+        <span class="hljs-string">"account_id"</span>: <span class="hljs-string">"0BMHBOBVG0A02"</span>,
+        <span class="hljs-string">"amount"</span>: <span class="hljs-number">41250000000</span>,
+        <span class="hljs-string">"asset_alias"</span>: <span class="hljs-string">"BTM"</span>,
+        <span class="hljs-string">"asset_id"</span>: <span class="hljs-string">"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"</span>,
+        <span class="hljs-string">"type"</span>: <span class="hljs-string">"control"</span>
+      }
+    ],
+    <span class="hljs-string">"tx_id"</span>: <span class="hljs-string">"c631a8de401913a512c338bcf4a61cb2de6cede12a7385d9d11637eaa6578f33"</span>
+  },
+  {
+    <span class="hljs-string">"block_time"</span>: <span class="hljs-number">1521770515</span>,
+    <span class="hljs-string">"inputs"</span>: [
+      {
+        <span class="hljs-string">"account_alias"</span>: <span class="hljs-string">"default"</span>,
+        <span class="hljs-string">"account_id"</span>: <span class="hljs-string">"0BMHBOBVG0A02"</span>,
+        <span class="hljs-string">"amount"</span>: <span class="hljs-number">41250000000</span>,
+        <span class="hljs-string">"asset_alias"</span>: <span class="hljs-string">"BTM"</span>,
+        <span class="hljs-string">"asset_id"</span>: <span class="hljs-string">"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"</span>,
+        <span class="hljs-string">"type"</span>: <span class="hljs-string">"spend"</span>
+      }
+    ],
+    <span class="hljs-string">"outputs"</span>: [
+      {
+        <span class="hljs-string">"account_alias"</span>: <span class="hljs-string">"default"</span>,
+        <span class="hljs-string">"account_id"</span>: <span class="hljs-string">"0BMHBOBVG0A02"</span>,
+        <span class="hljs-string">"amount"</span>: <span class="hljs-number">34649500000</span>,
+        <span class="hljs-string">"asset_alias"</span>: <span class="hljs-string">"BTM"</span>,
+        <span class="hljs-string">"asset_id"</span>: <span class="hljs-string">"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"</span>,
+        <span class="hljs-string">"type"</span>: <span class="hljs-string">"control"</span>
+      },
+      {
+        <span class="hljs-string">"account_alias"</span>: <span class="hljs-string">"alice"</span>,
+        <span class="hljs-string">"account_id"</span>: <span class="hljs-string">"0BMHDI1P00A04"</span>,
+        <span class="hljs-string">"amount"</span>: <span class="hljs-number">6600000000</span>,
+        <span class="hljs-string">"asset_alias"</span>: <span class="hljs-string">"BTM"</span>,
+        <span class="hljs-string">"asset_id"</span>: <span class="hljs-string">"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"</span>,
+        <span class="hljs-string">"type"</span>: <span class="hljs-string">"control"</span>
+      }
+    ],
+    <span class="hljs-string">"tx_id"</span>: <span class="hljs-string">"1151ce5c7b32b8755b5e48109ec7ed956fb1783eaea9558bf5a2ad957825e4b7"</span>
+  }
+]
+</code></pre>
+<p>list the transaction matching the given tx_id with detail:</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// Result</span>
+[
+  {
+    <span class="hljs-string">"block_hash"</span>: <span class="hljs-string">"1b2d0efa025256603e9330273d37f5a900cd3dfb213e015ac53cf645e2315a6d"</span>,
+    <span class="hljs-string">"block_height"</span>: <span class="hljs-number">72</span>,
+    <span class="hljs-string">"block_index"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-string">"block_time"</span>: <span class="hljs-number">1528528584</span>,
+    <span class="hljs-string">"block_transactions_count"</span>: <span class="hljs-number">2</span>,
+    <span class="hljs-string">"inputs"</span>: [
+      {
+        <span class="hljs-string">"account_alias"</span>: <span class="hljs-string">"default"</span>,
+        <span class="hljs-string">"account_id"</span>: <span class="hljs-string">"0ER7MEFGG0A02"</span>,
+        <span class="hljs-string">"address"</span>: <span class="hljs-string">"sm1q4pkg8msjumtep7ecsdzuct3tsuzk5pmnm3p8nr"</span>,
+        <span class="hljs-string">"amount"</span>: <span class="hljs-number">41250000000</span>,
+        <span class="hljs-string">"asset_alias"</span>: <span class="hljs-string">"BTM"</span>,
+        <span class="hljs-string">"asset_definition"</span>: {
+          <span class="hljs-string">"decimals"</span>: <span class="hljs-number">8</span>,
+          <span class="hljs-string">"description"</span>: <span class="hljs-string">"Bytom Official Issue"</span>,
+          <span class="hljs-string">"name"</span>: <span class="hljs-string">"BTM"</span>,
+          <span class="hljs-string">"symbol"</span>: <span class="hljs-string">"BTM"</span>
+        },
+        <span class="hljs-string">"asset_id"</span>: <span class="hljs-string">"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"</span>,
+        <span class="hljs-string">"control_program"</span>: <span class="hljs-string">"0014a86c83ee12e6d790fb388345cc2e2b87056a0773"</span>,
+        <span class="hljs-string">"spent_output_id"</span>: <span class="hljs-string">"0072a2c1cee30a7c7b7b006ca08a48c2b479bc81c0ec6463fe4865ef37626ab6"</span>,
+        <span class="hljs-string">"type"</span>: <span class="hljs-string">"spend"</span>
+      }
+    ],
+    <span class="hljs-string">"outputs"</span>: [
+      {
+        <span class="hljs-string">"account_alias"</span>: <span class="hljs-string">"default"</span>,
+        <span class="hljs-string">"account_id"</span>: <span class="hljs-string">"0ER7MEFGG0A02"</span>,
+        <span class="hljs-string">"address"</span>: <span class="hljs-string">"sm1qskj096x5w7ejcmk746g3djmv84dpxts62dewvd"</span>,
+        <span class="hljs-string">"amount"</span>: <span class="hljs-number">34649500000</span>,
+        <span class="hljs-string">"asset_alias"</span>: <span class="hljs-string">"BTM"</span>,
+        <span class="hljs-string">"asset_definition"</span>: {
+          <span class="hljs-string">"decimals"</span>: <span class="hljs-number">8</span>,
+          <span class="hljs-string">"description"</span>: <span class="hljs-string">"Bytom Official Issue"</span>,
+          <span class="hljs-string">"name"</span>: <span class="hljs-string">"BTM"</span>,
+          <span class="hljs-string">"symbol"</span>: <span class="hljs-string">"BTM"</span>
+        },
+        <span class="hljs-string">"asset_id"</span>: <span class="hljs-string">"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"</span>,
+        <span class="hljs-string">"control_program"</span>: <span class="hljs-string">"001485a4f2e8d477b32c6edeae9116cb6c3d5a132e1a"</span>,
+        <span class="hljs-string">"id"</span>: <span class="hljs-string">"b08c9bfc816064ca33da8b569998229774fc9552da7d4f16870b2c5a8f645b3b"</span>,
+        <span class="hljs-string">"position"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-string">"type"</span>: <span class="hljs-string">"control"</span>
+      },
+      {
+        <span class="hljs-string">"account_alias"</span>: <span class="hljs-string">"alice"</span>,
+        <span class="hljs-string">"account_id"</span>: <span class="hljs-string">"0ER7OAK400A02"</span>,
+        <span class="hljs-string">"address"</span>: <span class="hljs-string">"sm1qxe4jwhkekgnxkezu7xutu5gqnnpmyc8ppq98me"</span>,
+        <span class="hljs-string">"amount"</span>: <span class="hljs-number">6600000000</span>,
+        <span class="hljs-string">"asset_alias"</span>: <span class="hljs-string">"BTM"</span>,
+        <span class="hljs-string">"asset_definition"</span>: {
+          <span class="hljs-string">"decimals"</span>: <span class="hljs-number">8</span>,
+          <span class="hljs-string">"description"</span>: <span class="hljs-string">"Bytom Official Issue"</span>,
+          <span class="hljs-string">"name"</span>: <span class="hljs-string">"BTM"</span>,
+          <span class="hljs-string">"symbol"</span>: <span class="hljs-string">"BTM"</span>
+        },
+        <span class="hljs-string">"asset_id"</span>: <span class="hljs-string">"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"</span>,
+        <span class="hljs-string">"control_program"</span>: <span class="hljs-string">"0014366b275ed9b2266b645cf1b8be51009cc3b260e1"</span>,
+        <span class="hljs-string">"id"</span>: <span class="hljs-string">"0e8f8dc83a39b2b6d00a77759a797102d047f82f800fe21f5b1d80bb4d5e2e39"</span>,
+        <span class="hljs-string">"position"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-string">"type"</span>: <span class="hljs-string">"control"</span>
+      }
+    ],
+    <span class="hljs-string">"size"</span>: <span class="hljs-number">333</span>,
+    <span class="hljs-string">"status_fail"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-string">"tx_id"</span>: <span class="hljs-string">"7e9f9b999381da936e3cae48b5bac2b9bc28bb56c6c862be6c110448f7e2f6b3"</span>
+  }
+]
+</code></pre>
+<p>list the transaction matching the given account_id and unconfirmed flag(unconfirmed transaction's block_hash, block_height and block_index is default for zero):</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// Result</span>
+[
+  {
+    <span class="hljs-string">"block_hash"</span>: <span class="hljs-string">"0000000000000000000000000000000000000000000000000000000000000000"</span>,
+    <span class="hljs-string">"block_height"</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-string">"block_index"</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-string">"block_time"</span>: <span class="hljs-number">1529032899</span>,
+    <span class="hljs-string">"inputs"</span>: [
+      {
+        <span class="hljs-string">"account_alias"</span>: <span class="hljs-string">"default"</span>,
+        <span class="hljs-string">"account_id"</span>: <span class="hljs-string">"0F1L5Q3V00A02"</span>,
+        <span class="hljs-string">"address"</span>: <span class="hljs-string">"sm1ql67n04pj8mfqzv3wjq8num3yrltdykemgrr45j"</span>,
+        <span class="hljs-string">"amount"</span>: <span class="hljs-number">41250000000</span>,
+        <span class="hljs-string">"asset_alias"</span>: <span class="hljs-string">"BTM"</span>,
+        <span class="hljs-string">"asset_definition"</span>: {
+          <span class="hljs-string">"decimals"</span>: <span class="hljs-number">8</span>,
+          <span class="hljs-string">"description"</span>: <span class="hljs-string">"Bytom Official Issue"</span>,
+          <span class="hljs-string">"name"</span>: <span class="hljs-string">"BTM"</span>,
+          <span class="hljs-string">"symbol"</span>: <span class="hljs-string">"BTM"</span>
+        },
+        <span class="hljs-string">"asset_id"</span>: <span class="hljs-string">"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"</span>,
+        <span class="hljs-string">"control_program"</span>: <span class="hljs-string">"0014febd37d4323ed201322e900f3e6e241fd6d25b3b"</span>,
+        <span class="hljs-string">"spent_output_id"</span>: <span class="hljs-string">"00570443cbac4f68638ff565e8b04db2062800b9e23b7701913ddf6b190dbe65"</span>,
+        <span class="hljs-string">"type"</span>: <span class="hljs-string">"spend"</span>
+      },
+      {
+        <span class="hljs-string">"account_alias"</span>: <span class="hljs-string">"default"</span>,
+        <span class="hljs-string">"account_id"</span>: <span class="hljs-string">"0F1L5Q3V00A02"</span>,
+        <span class="hljs-string">"address"</span>: <span class="hljs-string">"sm1ql67n04pj8mfqzv3wjq8num3yrltdykemgrr45j"</span>,
+        <span class="hljs-string">"amount"</span>: <span class="hljs-number">41250000000</span>,
+        <span class="hljs-string">"asset_alias"</span>: <span class="hljs-string">"BTM"</span>,
+        <span class="hljs-string">"asset_definition"</span>: {
+          <span class="hljs-string">"decimals"</span>: <span class="hljs-number">8</span>,
+          <span class="hljs-string">"description"</span>: <span class="hljs-string">"Bytom Official Issue"</span>,
+          <span class="hljs-string">"name"</span>: <span class="hljs-string">"BTM"</span>,
+          <span class="hljs-string">"symbol"</span>: <span class="hljs-string">"BTM"</span>
+        },
+        <span class="hljs-string">"asset_id"</span>: <span class="hljs-string">"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"</span>,
+        <span class="hljs-string">"control_program"</span>: <span class="hljs-string">"0014febd37d4323ed201322e900f3e6e241fd6d25b3b"</span>,
+        <span class="hljs-string">"spent_output_id"</span>: <span class="hljs-string">"01df9011ca0bed4bb9b95dc84da4c5103fed06ca28c03d92d34ee3d61b945288"</span>,
+        <span class="hljs-string">"type"</span>: <span class="hljs-string">"spend"</span>
+      }
+    ],
+    <span class="hljs-string">"outputs"</span>: [
+      {
+        <span class="hljs-string">"account_alias"</span>: <span class="hljs-string">"default"</span>,
+        <span class="hljs-string">"account_id"</span>: <span class="hljs-string">"0F1L5Q3V00A02"</span>,
+        <span class="hljs-string">"address"</span>: <span class="hljs-string">"sm1qdcfprk7wjy6flavkzhcjh3dxyrwlm935trrs5m"</span>,
+        <span class="hljs-string">"amount"</span>: <span class="hljs-number">41249100000</span>,
+        <span class="hljs-string">"asset_alias"</span>: <span class="hljs-string">"BTM"</span>,
+        <span class="hljs-string">"asset_definition"</span>: {
+          <span class="hljs-string">"decimals"</span>: <span class="hljs-number">8</span>,
+          <span class="hljs-string">"description"</span>: <span class="hljs-string">"Bytom Official Issue"</span>,
+          <span class="hljs-string">"name"</span>: <span class="hljs-string">"BTM"</span>,
+          <span class="hljs-string">"symbol"</span>: <span class="hljs-string">"BTM"</span>
+        },
+        <span class="hljs-string">"asset_id"</span>: <span class="hljs-string">"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"</span>,
+        <span class="hljs-string">"control_program"</span>: <span class="hljs-string">"00146e1211dbce91349ff59615f12bc5a620ddfd9634"</span>,
+        <span class="hljs-string">"id"</span>: <span class="hljs-string">"09fabb1a2bac44c45054175453e23e81a764557147523d8df70d8a190cf2eb17"</span>,
+        <span class="hljs-string">"position"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-string">"type"</span>: <span class="hljs-string">"control"</span>
+      },
+      {
+        <span class="hljs-string">"account_alias"</span>: <span class="hljs-string">"default"</span>,
+        <span class="hljs-string">"account_id"</span>: <span class="hljs-string">"0F1L5Q3V00A02"</span>,
+        <span class="hljs-string">"address"</span>: <span class="hljs-string">"sm1qt92xx2f4ys63dyhy58jle87nttcf37zftweklh"</span>,
+        <span class="hljs-string">"amount"</span>: <span class="hljs-number">39150000000</span>,
+        <span class="hljs-string">"asset_alias"</span>: <span class="hljs-string">"BTM"</span>,
+        <span class="hljs-string">"asset_definition"</span>: {
+          <span class="hljs-string">"decimals"</span>: <span class="hljs-number">8</span>,
+          <span class="hljs-string">"description"</span>: <span class="hljs-string">"Bytom Official Issue"</span>,
+          <span class="hljs-string">"name"</span>: <span class="hljs-string">"BTM"</span>,
+          <span class="hljs-string">"symbol"</span>: <span class="hljs-string">"BTM"</span>
+        },
+        <span class="hljs-string">"asset_id"</span>: <span class="hljs-string">"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"</span>,
+        <span class="hljs-string">"control_program"</span>: <span class="hljs-string">"0014595463293524351692e4a1e5fc9fd35af098f849"</span>,
+        <span class="hljs-string">"id"</span>: <span class="hljs-string">"6efae48663e872193e8a672eb85b8bbf29d8aee98e42816340fa0b2340cc355d"</span>,
+        <span class="hljs-string">"position"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-string">"type"</span>: <span class="hljs-string">"control"</span>
+      },
+      {
+        <span class="hljs-string">"account_alias"</span>: <span class="hljs-string">"alice"</span>,
+        <span class="hljs-string">"account_id"</span>: <span class="hljs-string">"0F1MQVI500A02"</span>,
+        <span class="hljs-string">"address"</span>: <span class="hljs-string">"sm1qum6ly8aq9u9k7xrkuck9pq64xg67gw40khnnxu"</span>,
+        <span class="hljs-string">"amount"</span>: <span class="hljs-number">2100000000</span>,
+        <span class="hljs-string">"asset_alias"</span>: <span class="hljs-string">"BTM"</span>,
+        <span class="hljs-string">"asset_definition"</span>: {
+          <span class="hljs-string">"decimals"</span>: <span class="hljs-number">8</span>,
+          <span class="hljs-string">"description"</span>: <span class="hljs-string">"Bytom Official Issue"</span>,
+          <span class="hljs-string">"name"</span>: <span class="hljs-string">"BTM"</span>,
+          <span class="hljs-string">"symbol"</span>: <span class="hljs-string">"BTM"</span>
+        },
+        <span class="hljs-string">"asset_id"</span>: <span class="hljs-string">"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"</span>,
+        <span class="hljs-string">"control_program"</span>: <span class="hljs-string">"0014e6f5f21fa02f0b6f1876e62c5083553235e43aaf"</span>,
+        <span class="hljs-string">"id"</span>: <span class="hljs-string">"aca1ecc59d8bcf548e4f5afb8a97e38f0eb56e1387b17400fd3c693c074a703d"</span>,
+        <span class="hljs-string">"position"</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-string">"type"</span>: <span class="hljs-string">"control"</span>
+      }
+    ],
+    <span class="hljs-string">"size"</span>: <span class="hljs-number">1194</span>,
+    <span class="hljs-string">"status_fail"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-string">"tx_id"</span>: <span class="hljs-string">"9c28a6a2a039ed5bdebe81eea44cdb22a951c472bc25cb1e8188ae423a98f251"</span>
+  },
+  {
+    <span class="hljs-string">"block_hash"</span>: <span class="hljs-string">"474b9c28b225fba02278ad3b097d561bf8f5c562ff2a548226fc10fc1d75b7ed"</span>,
+    <span class="hljs-string">"block_height"</span>: <span class="hljs-number">255</span>,
+    <span class="hljs-string">"block_index"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-string">"block_time"</span>: <span class="hljs-number">1528963126</span>,
+    <span class="hljs-string">"block_transactions_count"</span>: <span class="hljs-number">2</span>,
+    <span class="hljs-string">"inputs"</span>: [
+      {
+        <span class="hljs-string">"account_alias"</span>: <span class="hljs-string">"alice"</span>,
+        <span class="hljs-string">"account_id"</span>: <span class="hljs-string">"0F1MQVI500A02"</span>,
+        <span class="hljs-string">"address"</span>: <span class="hljs-string">"sm1qum6ly8aq9u9k7xrkuck9pq64xg67gw40khnnxu"</span>,
+        <span class="hljs-string">"amount"</span>: <span class="hljs-number">10000000000</span>,
+        <span class="hljs-string">"asset_alias"</span>: <span class="hljs-string">"BTM"</span>,
+        <span class="hljs-string">"asset_definition"</span>: {
+          <span class="hljs-string">"decimals"</span>: <span class="hljs-number">8</span>,
+          <span class="hljs-string">"description"</span>: <span class="hljs-string">"Bytom Official Issue"</span>,
+          <span class="hljs-string">"name"</span>: <span class="hljs-string">"BTM"</span>,
+          <span class="hljs-string">"symbol"</span>: <span class="hljs-string">"BTM"</span>
+        },
+        <span class="hljs-string">"asset_id"</span>: <span class="hljs-string">"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"</span>,
+        <span class="hljs-string">"control_program"</span>: <span class="hljs-string">"0014e6f5f21fa02f0b6f1876e62c5083553235e43aaf"</span>,
+        <span class="hljs-string">"spent_output_id"</span>: <span class="hljs-string">"767649aafdfe2c22d46d641a5b74d934e2590330f7280b0fc55b978812a99a58"</span>,
+        <span class="hljs-string">"type"</span>: <span class="hljs-string">"spend"</span>
+      },
+      {
+        <span class="hljs-string">"account_alias"</span>: <span class="hljs-string">"alice"</span>,
+        <span class="hljs-string">"account_id"</span>: <span class="hljs-string">"0F1MQVI500A02"</span>,
+        <span class="hljs-string">"address"</span>: <span class="hljs-string">"sm1qum6ly8aq9u9k7xrkuck9pq64xg67gw40khnnxu"</span>,
+        <span class="hljs-string">"amount"</span>: <span class="hljs-number">1000000000000</span>,
+        <span class="hljs-string">"asset_alias"</span>: <span class="hljs-string">"GOLD"</span>,
+        <span class="hljs-string">"asset_definition"</span>: {
+          <span class="hljs-string">"decimals"</span>: <span class="hljs-number">8</span>,
+          <span class="hljs-string">"description"</span>: {},
+          <span class="hljs-string">"name"</span>: <span class="hljs-string">""</span>,
+          <span class="hljs-string">"symobol"</span>: <span class="hljs-string">""</span>
+        },
+        <span class="hljs-string">"asset_id"</span>: <span class="hljs-string">"71deb74415f16a1f7bffb04c61d427bb1f93adfba257ffba2673f102d602e78f"</span>,
+        <span class="hljs-string">"control_program"</span>: <span class="hljs-string">"0014e6f5f21fa02f0b6f1876e62c5083553235e43aaf"</span>,
+        <span class="hljs-string">"spent_output_id"</span>: <span class="hljs-string">"5d7a88851f5696ded279cb9bc380e050024c555258ea7851dfdedc2797b0d820"</span>,
+        <span class="hljs-string">"type"</span>: <span class="hljs-string">"spend"</span>
+      }
+    ],
+    <span class="hljs-string">"outputs"</span>: [
+      {
+        <span class="hljs-string">"account_alias"</span>: <span class="hljs-string">"alice"</span>,
+        <span class="hljs-string">"account_id"</span>: <span class="hljs-string">"0F1MQVI500A02"</span>,
+        <span class="hljs-string">"address"</span>: <span class="hljs-string">"sm1q39sztlh4jq5nknstn2udvvpm6v5ugussx2djc0"</span>,
+        <span class="hljs-string">"amount"</span>: <span class="hljs-number">9980000000</span>,
+        <span class="hljs-string">"asset_alias"</span>: <span class="hljs-string">"BTM"</span>,
+        <span class="hljs-string">"asset_definition"</span>: {
+          <span class="hljs-string">"decimals"</span>: <span class="hljs-number">8</span>,
+          <span class="hljs-string">"description"</span>: <span class="hljs-string">"Bytom Official Issue"</span>,
+          <span class="hljs-string">"name"</span>: <span class="hljs-string">"BTM"</span>,
+          <span class="hljs-string">"symbol"</span>: <span class="hljs-string">"BTM"</span>
+        },
+        <span class="hljs-string">"asset_id"</span>: <span class="hljs-string">"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"</span>,
+        <span class="hljs-string">"control_program"</span>: <span class="hljs-string">"0014896025fef590293b4e0b9ab8d6303bd329c47210"</span>,
+        <span class="hljs-string">"id"</span>: <span class="hljs-string">"2b44969d28d79544006e792411d6cd1d245f9af20419f6138494b4b5aac2a72e"</span>,
+        <span class="hljs-string">"position"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-string">"type"</span>: <span class="hljs-string">"control"</span>
+      },
+      {
+        <span class="hljs-string">"account_alias"</span>: <span class="hljs-string">"alice"</span>,
+        <span class="hljs-string">"account_id"</span>: <span class="hljs-string">"0F1MQVI500A02"</span>,
+        <span class="hljs-string">"address"</span>: <span class="hljs-string">"sm1q258yd0gvatje4pn0qc8z9w8cdv45j9tvhfpjh8"</span>,
+        <span class="hljs-string">"amount"</span>: <span class="hljs-number">999999999901</span>,
+        <span class="hljs-string">"asset_alias"</span>: <span class="hljs-string">"GOLD"</span>,
+        <span class="hljs-string">"asset_definition"</span>: {
+          <span class="hljs-string">"decimals"</span>: <span class="hljs-number">8</span>,
+          <span class="hljs-string">"description"</span>: {},
+          <span class="hljs-string">"name"</span>: <span class="hljs-string">""</span>,
+          <span class="hljs-string">"symobol"</span>: <span class="hljs-string">""</span>
+        },
+        <span class="hljs-string">"asset_id"</span>: <span class="hljs-string">"71deb74415f16a1f7bffb04c61d427bb1f93adfba257ffba2673f102d602e78f"</span>,
+        <span class="hljs-string">"control_program"</span>: <span class="hljs-string">"0014550e46bd0ceae59a866f060e22b8f86b2b49156c"</span>,
+        <span class="hljs-string">"id"</span>: <span class="hljs-string">"54be1bc876d1deccb9845acec79eabf62d7eacd5935e337850233657914d0f9d"</span>,
+        <span class="hljs-string">"position"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-string">"type"</span>: <span class="hljs-string">"control"</span>
+      },
+      {
+        <span class="hljs-string">"amount"</span>: <span class="hljs-number">99</span>,
+        <span class="hljs-string">"asset_alias"</span>: <span class="hljs-string">"GOLD"</span>,
+        <span class="hljs-string">"asset_definition"</span>: {
+          <span class="hljs-string">"decimals"</span>: <span class="hljs-number">8</span>,
+          <span class="hljs-string">"description"</span>: {},
+          <span class="hljs-string">"name"</span>: <span class="hljs-string">""</span>,
+          <span class="hljs-string">"symobol"</span>: <span class="hljs-string">""</span>
+        },
+        <span class="hljs-string">"asset_id"</span>: <span class="hljs-string">"71deb74415f16a1f7bffb04c61d427bb1f93adfba257ffba2673f102d602e78f"</span>,
+        <span class="hljs-string">"control_program"</span>: <span class="hljs-string">"20e864761d8181103b6476435a805cba97361df9a05c40fae644c27f69ce045d3c16001464d928e181900d382fa33def66534c7323c778c4015820684d6683d014abb4e019878b50fbbb547bcbf9c4739498d8eeef565d37f9a82f741a547a6413000000007b7b51547ac1631a000000547a547aae7cac00c0"</span>,
+        <span class="hljs-string">"id"</span>: <span class="hljs-string">"347553923bb550c236a703e46600d53f25161e3eb74ee3183884d398e5d894b0"</span>,
+        <span class="hljs-string">"position"</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-string">"type"</span>: <span class="hljs-string">"control"</span>
+      }
+    ],
+    <span class="hljs-string">"size"</span>: <span class="hljs-number">691</span>,
+    <span class="hljs-string">"status_fail"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-string">"tx_id"</span>: <span class="hljs-string">"383f8636842301b2fe292c5b8b2f540c6ed7867ba5751680b2e77827c300e41e"</span>
+  }
+]
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="build-transaction"></a><a href="#build-transaction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>build-transaction</h2>
+<p>Build transaction.</p>
+<h4><a class="anchor" aria-hidden="true" id="parameters-2"></a><a href="#parameters-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<ul>
+<li><code>String</code> - <em>base_transaction</em>, base data for the transaction, default is null.</li>
+<li><code>Integer</code> - <em>ttl</em>, integer of the time to live in milliseconds, it means utxo will be reserved(locked) for builded transaction in this time range, if the transaction will not to be submitted into block, it will be auto unlocked for build transaction again after this ttl time. it will be set to 5 minutes(300 seconds) defaultly when ttl is 0.</li>
+<li><code>Integer</code> - <em>time_range</em>, the block height at which this transaction will be allowed to be included in a block. If the block height of the main chain exceeds this value, the transaction will expire and no longer be valid.</li>
+<li><code>Arrary of Object</code> - <em>actions</em> :
+<ul>
+<li><code>String</code> - <em>account_id</em> | <em>account_alias</em>, (type is spend_account) alias or ID of account.</li>
+<li><code>String</code> - <em>asset_id</em> | <em>asset_alias</em>, (type is spend_account, issue, retire, control_program and control_address) alias or ID of asset.</li>
+<li><code>Integer</code> - <em>amount</em>, (type is spend_account, issue, retire, control_program and control_address) the specified asset of the amount sent with this transaction.</li>
+<li><code>String</code>- <em>type</em>, type of transaction, valid types: 'spend_account', 'issue', 'spend_account_unspent_output', 'control_address', 'control_program', 'retire'.</li>
+<li><code>String</code> - <em>address</em>, (type is control_address) address of receiver, the style of address is P2PKH or P2SH.</li>
+<li><code>String</code> - <em>control_program</em>, (type is control_program) control program of receiver.</li>
+</ul></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="returns-2"></a><a href="#returns-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Returns</h4>
+<ul>
+<li><code>Object of build-transaction</code> -  <em>transaction</em>, builded transaction.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="example-2"></a><a href="#example-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h4>
+<pre><code class="hljs css language-java">Client client = TestUtils.generateClient();
+Transaction.Template controlAddress = <span class="hljs-keyword">new</span> Transaction.Builder()
+    .addAction(
+    <span class="hljs-keyword">new</span> Transaction.Action.SpendFromAccount()
+    .setAccountId(senderAccount.id)
+    .setAssetId(senderAsset.id)
+    .setAmount(<span class="hljs-number">300000000</span>)
+    )
+    .addAction(
+    <span class="hljs-keyword">new</span> Transaction.Action.ControlWithAddress()
+    .setAddress(receiverAddress.address)
+    .setAssetId(senderAsset.id)
+    .setAmount(<span class="hljs-number">200000000</span>)
+    ).build(client);
+</code></pre>
+<pre><code class="hljs css language-js"><span class="hljs-comment">//Result</span>
+{
+  <span class="hljs-string">"allow_additional_actions"</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-string">"local"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-string">"raw_transaction"</span>: <span class="hljs-string">"07010000020161015fb6a63a3361170afca03c9d5ce1f09fe510187d69545e09f95548b939cd7fffa3ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff80fc93afdf01000116001426bd1b851cf6eb8a701c20c184352ad8720eeee90100015d015bb6a63a3361170afca03c9d5ce1f09fe510187d69545e09f95548b939cd7fffa33152a15da72be51b330e1c0f8e1c0db669269809da4f16443ff266e07cc43680c03e0101160014489a678741ccc844f9e5c502f7fac0a665bedb25010003013effffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff80a2cfa5df0101160014948fb4f500e66d20fbacb903fe108ee81f9b6d9500013a3152a15da72be51b330e1c0f8e1c0db669269809da4f16443ff266e07cc43680dd3d01160014cd5a822b34e3084413506076040d508bb12232c70001393152a15da72be51b330e1c0f8e1c0db669269809da4f16443ff266e07cc436806301160014a3f9111f3b0ee96cbd119a3ea5c60058f506fb1900"</span>,
+  <span class="hljs-string">"signing_instructions"</span>: [
+    {
+      <span class="hljs-string">"position"</span>: <span class="hljs-number">0</span>,
+      <span class="hljs-string">"witness_components"</span>: [
+        {
+          <span class="hljs-string">"keys"</span>: [
+            {
+              <span class="hljs-string">"derivation_path"</span>: [
+                <span class="hljs-string">"010100000000000000"</span>,
+                <span class="hljs-string">"0500000000000000"</span>
+              ],
+              <span class="hljs-string">"xpub"</span>: <span class="hljs-string">"ee9dd8affdef7e0cacd0fbbf310217c7f588156c28e414db74c27afaedd8f876cf54547a672b431ff06ee8a146207df9595638a041b55ada1a764a8b5b30bda0"</span>
+            }
+          ],
+          <span class="hljs-string">"quorum"</span>: <span class="hljs-number">1</span>,
+          <span class="hljs-string">"signatures"</span>: <span class="hljs-literal">null</span>,
+          <span class="hljs-string">"type"</span>: <span class="hljs-string">"raw_tx_signature"</span>
+        },
+        {
+          <span class="hljs-string">"type"</span>: <span class="hljs-string">"data"</span>,
+          <span class="hljs-string">"value"</span>: <span class="hljs-string">"62a73b6b7ffe52b6ad782b0e0efdc8309bf2f057d88f9a17d125e41bb11dbb88"</span>
+        }
+      ]
+    },
+    {
+      <span class="hljs-string">"position"</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-string">"witness_components"</span>: [
+        {
+          <span class="hljs-string">"keys"</span>: [
+            {
+              <span class="hljs-string">"derivation_path"</span>: [
+                <span class="hljs-string">"010100000000000000"</span>,
+                <span class="hljs-string">"0600000000000000"</span>
+              ],
+              <span class="hljs-string">"xpub"</span>: <span class="hljs-string">"ee9dd8affdef7e0cacd0fbbf310217c7f588156c28e414db74c27afaedd8f876cf54547a672b431ff06ee8a146207df9595638a041b55ada1a764a8b5b30bda0"</span>
+            }
+          ],
+          <span class="hljs-string">"quorum"</span>: <span class="hljs-number">1</span>,
+          <span class="hljs-string">"signatures"</span>: <span class="hljs-literal">null</span>,
+          <span class="hljs-string">"type"</span>: <span class="hljs-string">"raw_tx_signature"</span>
+        },
+        {
+          <span class="hljs-string">"type"</span>: <span class="hljs-string">"data"</span>,
+          <span class="hljs-string">"value"</span>: <span class="hljs-string">"ba5a63e7416caeb945eefc2ce874f40bc4aaf6005a1fc792557e41046f7e502f"</span>
+        }
+      ]
+    }
+  ]
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="sign-transaction"></a><a href="#sign-transaction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>sign-transaction</h2>
+<p>Sign transaction.</p>
+<h4><a class="anchor" aria-hidden="true" id="parameters-3"></a><a href="#parameters-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<p><code>Object</code>:</p>
+<ul>
+<li><code>String</code> - <em>password</em>, signature of the password.</li>
+<li><code>Object</code> - <em>transaction</em>, builded transaction.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="returns-3"></a><a href="#returns-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Returns</h4>
+<p><code>Object</code>:</p>
+<ul>
+<li><code>Boolean</code> - <em>sign_complete</em>, returns true if sign succesfully and false otherwise.</li>
+<li><code>Object of sign-transaction</code> - <em>transaction</em>, signed transaction.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="example-3"></a><a href="#example-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h4>
+<pre><code class="hljs css language-java">Transaction.Template singer = <span class="hljs-keyword">new</span> Transaction.SignerBuilder().sign(client,controlAddress, <span class="hljs-string">"123456"</span>);
+</code></pre>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// Result</span>
+{
+  <span class="hljs-string">"sign_complete"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-string">"transaction"</span>: {
+    <span class="hljs-string">"allow_additional_actions"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-string">"local"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-string">"raw_transaction"</span>: <span class="hljs-string">"07010000020161015fb6a63a3361170afca03c9d5ce1f09fe510187d69545e09f95548b939cd7fffa3ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff80fc93afdf01000116001426bd1b851cf6eb8a701c20c184352ad8720eeee96302400d432e6f0e22da3168d76552273e60d23d432d61b4dac53e6769d39a1097f1cd1bd8e54c7d39eda334803e5c904bc2de2f27ff29748166e0334dcfded20e980b2062a73b6b7ffe52b6ad782b0e0efdc8309bf2f057d88f9a17d125e41bb11dbb88015d015bb6a63a3361170afca03c9d5ce1f09fe510187d69545e09f95548b939cd7fffa33152a15da72be51b330e1c0f8e1c0db669269809da4f16443ff266e07cc43680c03e0101160014489a678741ccc844f9e5c502f7fac0a665bedb256302401eadd84ad07c3643f71a35cc5669a2c1def96ae98e790d287217e6a3543fe602dd90afffe853c729bd5237a28f33538df631572847d9870829fb1fd1100ff20820ba5a63e7416caeb945eefc2ce874f40bc4aaf6005a1fc792557e41046f7e502f03013effffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff80a2cfa5df0101160014948fb4f500e66d20fbacb903fe108ee81f9b6d9500013a3152a15da72be51b330e1c0f8e1c0db669269809da4f16443ff266e07cc43680dd3d01160014cd5a822b34e3084413506076040d508bb12232c70001393152a15da72be51b330e1c0f8e1c0db669269809da4f16443ff266e07cc436806301160014a3f9111f3b0ee96cbd119a3ea5c60058f506fb1900"</span>,
+    <span class="hljs-string">"signing_instructions"</span>: [
+      {
+        <span class="hljs-string">"position"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-string">"witness_components"</span>: [
+          {
+            <span class="hljs-string">"keys"</span>: [
+              {
+                <span class="hljs-string">"derivation_path"</span>: [
+                  <span class="hljs-string">"010100000000000000"</span>,
+                  <span class="hljs-string">"0500000000000000"</span>
+                ],
+                <span class="hljs-string">"xpub"</span>: <span class="hljs-string">"ee9dd8affdef7e0cacd0fbbf310217c7f588156c28e414db74c27afaedd8f876cf54547a672b431ff06ee8a146207df9595638a041b55ada1a764a8b5b30bda0"</span>
+              }
+            ],
+            <span class="hljs-string">"quorum"</span>: <span class="hljs-number">1</span>,
+            <span class="hljs-string">"signatures"</span>: [
+              <span class="hljs-string">"0d432e6f0e22da3168d76552273e60d23d432d61b4dac53e6769d39a1097f1cd1bd8e54c7d39eda334803e5c904bc2de2f27ff29748166e0334dcfded20e980b"</span>
+            ],
+            <span class="hljs-string">"type"</span>: <span class="hljs-string">"raw_tx_signature"</span>
+          },
+          {
+            <span class="hljs-string">"type"</span>: <span class="hljs-string">"data"</span>,
+            <span class="hljs-string">"value"</span>: <span class="hljs-string">"62a73b6b7ffe52b6ad782b0e0efdc8309bf2f057d88f9a17d125e41bb11dbb88"</span>
+          }
+        ]
+      },
+      {
+        <span class="hljs-string">"position"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-string">"witness_components"</span>: [
+          {
+            <span class="hljs-string">"keys"</span>: [
+              {
+                <span class="hljs-string">"derivation_path"</span>: [
+                  <span class="hljs-string">"010100000000000000"</span>,
+                  <span class="hljs-string">"0600000000000000"</span>
+                ],
+                <span class="hljs-string">"xpub"</span>: <span class="hljs-string">"ee9dd8affdef7e0cacd0fbbf310217c7f588156c28e414db74c27afaedd8f876cf54547a672b431ff06ee8a146207df9595638a041b55ada1a764a8b5b30bda0"</span>
+              }
+            ],
+            <span class="hljs-string">"quorum"</span>: <span class="hljs-number">1</span>,
+            <span class="hljs-string">"signatures"</span>: [
+              <span class="hljs-string">"1eadd84ad07c3643f71a35cc5669a2c1def96ae98e790d287217e6a3543fe602dd90afffe853c729bd5237a28f33538df631572847d9870829fb1fd1100ff208"</span>
+            ],
+            <span class="hljs-string">"type"</span>: <span class="hljs-string">"raw_tx_signature"</span>
+          },
+          {
+            <span class="hljs-string">"type"</span>: <span class="hljs-string">"data"</span>,
+            <span class="hljs-string">"value"</span>: <span class="hljs-string">"ba5a63e7416caeb945eefc2ce874f40bc4aaf6005a1fc792557e41046f7e502f"</span>
+          }
+        ]
+      }
+    ]
+  }
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="submit-transaction"></a><a href="#submit-transaction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>submit-transaction</h2>
+<p>Sign transactions used for batch signing transactions.</p>
+<h4><a class="anchor" aria-hidden="true" id="parameters-4"></a><a href="#parameters-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<ul>
+<li><code>Object</code> - <em>raw_transaction</em>, raw_transaction of signed transaction.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="returns-4"></a><a href="#returns-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Returns</h4>
+<ul>
+<li><code>String</code> - <em>tx_id</em>, transaction id, hash of transaction.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="example-4"></a><a href="#example-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h4>
+<pre><code class="hljs css language-java">Transaction.SubmitResponse txs = Transaction.submit(client, singer);
+</code></pre>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// Result</span>
+{
+  <span class="hljs-string">"tx_id"</span>: <span class="hljs-string">"2c0624a7d251c29d4d1ad14297c69919214e78d995affd57e73fbf84ece316cb"</span>
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="estimate-transaction-gas"></a><a href="#estimate-transaction-gas" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>estimate-transaction-gas</h2>
+<p>Estimate consumed neu(1BTM = 10^8NEU) for the transaction.</p>
+<h4><a class="anchor" aria-hidden="true" id="parameters-5"></a><a href="#parameters-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<ul>
+<li><code>Object</code> - <em>transaction_template</em>, builded transaction response.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="returns-5"></a><a href="#returns-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Returns</h4>
+<ul>
+<li><code>Integer</code> - <em>total_neu</em>, total consumed neu(1BTM = 10^8NEU) for execute transaction, total_neu is rounded up storage_neu + vm_neu.</li>
+<li><code>Integer</code> - <em>storage_neu</em>, consumed neu for storage transaction .</li>
+<li><code>Integer</code> - <em>vm_neu</em>, consumed neu for execute VM.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="example-5"></a><a href="#example-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h4>
+<pre><code class="hljs css language-java">TransactionGas.estimateGas(Client client, Template template);
+</code></pre>
+<pre><code class="hljs css language-bash">// Result
+{
+  <span class="hljs-string">"storage_neu"</span>: 3840000,
+  <span class="hljs-string">"total_neu"</span>: 5259000,
+  <span class="hljs-string">"vm_neu"</span>: 1419000
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="get-unconfirmed-transaction"></a><a href="#get-unconfirmed-transaction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>get-unconfirmed-transaction</h2>
+<p>Query mempool transaction by transaction ID.</p>
+<h4><a class="anchor" aria-hidden="true" id="parameters-6"></a><a href="#parameters-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<ul>
+<li><code>String</code> - <em>tx_id</em>, transaction id, hash of transaction.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="returns-6"></a><a href="#returns-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Returns</h4>
+<ul>
+<li><code>String</code> - <em>id</em>, transaction id, hash of the transaction.</li>
+<li><code>Integer</code> - <em>version</em>, version of transaction.</li>
+<li><code>Integer</code> - <em>size</em>, size of transaction.</li>
+<li><code>Integer</code> - <em>time_range</em>, the time range of transaction.</li>
+<li><code>Boolean</code> - <em>status_fail</em>, whether the state of the request has failed.</li>
+<li><code>String</code> - <em>mux_id</em>, the previous transaction mux id(wallet enable can be acquired, this place is empty).</li>
+<li><code>Array of Object</code> - <em>inputs</em>, object of inputs for the transaction(input struct please refer to get-transction API description).</li>
+<li><code>Array of Object</code> - <em>outputs</em>, object of outputs for the transaction(output struct please refer to get-transction API description).</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="example-6"></a><a href="#example-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h4>
+<pre><code class="hljs css language-java">Client client = TestUtils.generateClient();
+utxResponse = UnconfirmedTransaction.list(client);
+unconfirmedTransaction = UnconfirmedTransaction.get(client, utxResponse.txIds.get(<span class="hljs-number">0</span>));
+Assert.assertNotNull(unconfirmedTransaction);
+</code></pre>
+<pre><code class="hljs css language-bash">// Result
+{
+  <span class="hljs-string">"id"</span>: <span class="hljs-string">"382090f24fbfc2f737fa7372b9d161a43f00d1c597a7130a56589d1f469d04b5"</span>,
+  <span class="hljs-string">"inputs"</span>: [
+    {
+      <span class="hljs-string">"address"</span>: <span class="hljs-string">"bm1qqrm7ruecx7yrg9smtwmnmgj3umg9vcukgy5sdj"</span>,
+      <span class="hljs-string">"amount"</span>: 41250000000,
+      <span class="hljs-string">"asset_definition"</span>: {},
+      <span class="hljs-string">"asset_id"</span>: <span class="hljs-string">"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"</span>,
+      <span class="hljs-string">"control_program"</span>: <span class="hljs-string">"001400f7e1f338378834161b5bb73da251e6d0566396"</span>,
+      <span class="hljs-string">"spent_output_id"</span>: <span class="hljs-string">"161b44e547a6cc68d732eb64fa38031da98211a99319e088cfe632223f9ac6d8"</span>,
+      <span class="hljs-string">"type"</span>: <span class="hljs-string">"spend"</span>
+    }
+  ],
+  <span class="hljs-string">"mux_id"</span>: <span class="hljs-string">"0000000000000000000000000000000000000000000000000000000000000000"</span>,
+  <span class="hljs-string">"outputs"</span>: [
+    {
+      <span class="hljs-string">"address"</span>: <span class="hljs-string">"bm1qehxd5cdnepckh5jc72ggn30havd78lsgcqmt7k"</span>,
+      <span class="hljs-string">"amount"</span>: 21230000000,
+      <span class="hljs-string">"asset_definition"</span>: {},
+      <span class="hljs-string">"asset_id"</span>: <span class="hljs-string">"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"</span>,
+      <span class="hljs-string">"control_program"</span>: <span class="hljs-string">"0014cdccda61b3c8716bd258f29089c5f7eb1be3fe08"</span>,
+      <span class="hljs-string">"id"</span>: <span class="hljs-string">"a8f21ad24689c290634db85278f56d152efe6fe08bc194e5dee5127ed6d3ebee"</span>,
+      <span class="hljs-string">"position"</span>: 0,
+      <span class="hljs-string">"type"</span>: <span class="hljs-string">"control"</span>
+    },
+    {
+      <span class="hljs-string">"address"</span>: <span class="hljs-string">"bm1q2me9gwccnm3ehpnrcr99gcnj730js2zfucms3r"</span>,
+      <span class="hljs-string">"amount"</span>: 20000000000,
+      <span class="hljs-string">"asset_definition"</span>: {},
+      <span class="hljs-string">"asset_id"</span>: <span class="hljs-string">"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"</span>,
+      <span class="hljs-string">"control_program"</span>: <span class="hljs-string">"001456f2543b189ee39b8663c0ca546272f45f282849"</span>,
+      <span class="hljs-string">"id"</span>: <span class="hljs-string">"78219e422ea3257aeb32f6d952b5ce5560dab1d6440c9f3aebcdaad2a852d2a8"</span>,
+      <span class="hljs-string">"position"</span>: 1,
+      <span class="hljs-string">"type"</span>: <span class="hljs-string">"control"</span>
+    }
+  ],
+  <span class="hljs-string">"size"</span>: 664,
+  <span class="hljs-string">"status_fail"</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-string">"time_range"</span>: 0,
+  <span class="hljs-string">"version"</span>: 1
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="list-unconfirmed-transactions"></a><a href="#list-unconfirmed-transactions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>list-unconfirmed-transactions</h2>
+<p>Returns the total number of mempool transactions and the list of transaction IDs.</p>
+<h4><a class="anchor" aria-hidden="true" id="parameters-7"></a><a href="#parameters-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<p>none</p>
+<h4><a class="anchor" aria-hidden="true" id="returns-7"></a><a href="#returns-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Returns</h4>
+<ul>
+<li><code>Integer</code> - <em>total</em>, version of transaction.</li>
+<li><code>Array of Object</code> - <em>tx_ids</em>, list of transaction id.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="example-7"></a><a href="#example-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h4>
+<pre><code class="hljs css language-java">Client client = TestUtils.generateClient();
+utxResponse = UnconfirmedTransaction.list(client);
+Assert.assertNotNull(utxResponse);
+</code></pre>
+<pre><code class="hljs css language-bash">// Result
+{
+  <span class="hljs-string">"total"</span>: 2,
+  <span class="hljs-string">"tx_ids"</span>: [
+    <span class="hljs-string">"382090f24fbfc2f737fa7372b9d161a43f00d1c597a7130a56589d1f469d04b5"</span>,
+    <span class="hljs-string">"fc2da5dfa094c2170144f149fa07a312983157aec0ec95063a1319eedcb2d23b"</span>
+  ]
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="decode-raw-transaction"></a><a href="#decode-raw-transaction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>decode-raw-transaction</h2>
+<p>Decode a serialized transaction hex string into a JSON object describing the transaction.</p>
+<h4><a class="anchor" aria-hidden="true" id="parameters-8"></a><a href="#parameters-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<ul>
+<li><code>String</code> - <em>raw_transaction</em>, hexstring of raw transaction.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="returns-8"></a><a href="#returns-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Returns</h4>
+<ul>
+<li><code>Integer</code> - <em>version</em>, version of transaction.</li>
+<li><code>String</code> - <em>size</em>, size of transaction.</li>
+<li><code>String</code> - <em>time_range</em>, time range of transaction.</li>
+<li><code>String</code> - <em>fee</em>, fee for sending transaction.</li>
+<li><code>Array of Object</code> - <em>inputs</em>, object of inputs for the transaction(input struct please refer to get-transction API description).</li>
+<li><code>Array of Object</code> - <em>outputs</em>, object of outputs for the transaction
+(output struct please refer to get-transction API description).</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="example-8"></a><a href="#example-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h4>
+<pre><code class="hljs css language-java">Client client = TestUtils.generateClient();
+String rawTxId = <span class="hljs-string">"070100010161015f30e052cd50e385951936c08fb5642bd12b727da958960249ddad8c9a77e5371fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff8099c4d59901000116001412a47b53b3bbdaf9f3510e1d8c19d69f81ca91426302405a8b5adebd2ab63ba1ac55a7bbadc1fe246806c37732df0442b827fa4e06058137711d9d012becdc9de507a8ad0de0dd50780c0503c0dcff2dc03d7592e31a08206e1efce70e2b29efa348aec7c148edc2beb72edc0d4422a03cfb0f40e6e4cfc602013effffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff80d3bdc6980101160014a9c0ea4abe4d09546197bac3c86f4dd39fde1afb00013cffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff8084af5f011600144cc6edb1f4077c740e0201bb3688e6efba4a098c00"</span>;
+rawTransaction = RawTransaction.decode(client, rawTxId);
+Assert.assertNotNull(rawTransaction);
+</code></pre>
+<pre><code class="hljs css language-bash">// Result
+{
+  <span class="hljs-string">"fee"</span>: 20000000,
+  <span class="hljs-string">"inputs"</span>: [
+    {
+      <span class="hljs-string">"address"</span>: <span class="hljs-string">"tm1q26kpwrrevhh2c8xrfy5vnaryu0ugc97c4yxp66"</span>,
+      <span class="hljs-string">"amount"</span>: 41250000000,
+      <span class="hljs-string">"asset_definition"</span>: {},
+      <span class="hljs-string">"asset_id"</span>: <span class="hljs-string">"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"</span>,
+      <span class="hljs-string">"control_program"</span>: <span class="hljs-string">"001456ac170c7965eeac1cc34928c9f464e3f88c17d8"</span>,
+      <span class="hljs-string">"spent_output_id"</span>: <span class="hljs-string">"01bb3309666618a1507cb5be845b17dee5eb8028ee7e71b17d74b4dc97085bc8"</span>,
+      <span class="hljs-string">"type"</span>: <span class="hljs-string">"spend"</span>
+    }
+  ],
+  <span class="hljs-string">"outputs"</span>: [
+    {
+      <span class="hljs-string">"address"</span>: <span class="hljs-string">"tm1qc0fjpcwuflnc06038s2xfcl2t2hfdfv06pfd70"</span>,
+      <span class="hljs-string">"amount"</span>: 41030000000,
+      <span class="hljs-string">"asset_definition"</span>: {},
+      <span class="hljs-string">"asset_id"</span>: <span class="hljs-string">"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"</span>,
+      <span class="hljs-string">"control_program"</span>: <span class="hljs-string">"0014c3d320e1dc4fe787e9f13c1464e3ea5aae96a58f"</span>,
+      <span class="hljs-string">"id"</span>: <span class="hljs-string">"567b34857614d16292220beaca16ce34b939c75023a49cc43fa432fff51ca0dd"</span>,
+      <span class="hljs-string">"position"</span>: 0,
+      <span class="hljs-string">"type"</span>: <span class="hljs-string">"control"</span>
+    },
+    {
+      <span class="hljs-string">"address"</span>: <span class="hljs-string">"tm1qhwfumd8v5a9sdqepa6uy43wnx6rzsxm9uhmk4q"</span>,
+      <span class="hljs-string">"amount"</span>: 200000000,
+      <span class="hljs-string">"asset_definition"</span>: {},
+      <span class="hljs-string">"asset_id"</span>: <span class="hljs-string">"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"</span>,
+      <span class="hljs-string">"control_program"</span>: <span class="hljs-string">"0014bb93cdb4eca74b068321eeb84ac5d33686281b65"</span>,
+      <span class="hljs-string">"id"</span>: <span class="hljs-string">"a8069d412e48c2b2994d2816758078cff46b215421706b4bad41f72a32928d92"</span>,
+      <span class="hljs-string">"position"</span>: 1,
+      <span class="hljs-string">"type"</span>: <span class="hljs-string">"control"</span>
+    }
+  ],
+  <span class="hljs-string">"size"</span>: 332,
+  <span class="hljs-string">"time_range"</span>: 0,
+  <span class="hljs-string">"version"</span>: 1
+}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/java-en-docs/docs/asset"><span class="arrow-prev">← </span><span>Bytom.Asset.API</span></a><a class="docs-next button" href="/java-en-docs/docs/wallet"><span>Bytom.Wallet.API</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#get-transaction">get-transaction</a></li><li><a href="#list-transactions">list-transactions</a></li><li><a href="#build-transaction">build-transaction</a></li><li><a href="#sign-transaction">sign-transaction</a></li><li><a href="#submit-transaction">submit-transaction</a></li><li><a href="#estimate-transaction-gas">estimate-transaction-gas</a></li><li><a href="#get-unconfirmed-transaction">get-unconfirmed-transaction</a></li><li><a href="#list-unconfirmed-transactions">list-unconfirmed-transactions</a></li><li><a href="#decode-raw-transaction">decode-raw-transaction</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap">//</section>//<section class="copyright">Copyright © 2019 Bytom Community</section></footer></div></body></html>

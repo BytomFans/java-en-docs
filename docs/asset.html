@@ -1,0 +1,279 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Asset API · Bytom Java API文档</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;h2&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;create-asset&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#create-asset&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;create-asset&lt;/h2&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Asset API · Bytom Java API文档"/><meta property="og:type" content="website"/><meta property="og:url" content="https://bytomfans.github.io/java-en-docs/"/><meta property="og:description" content="&lt;h2&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;create-asset&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#create-asset&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;create-asset&lt;/h2&gt;
+"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/java-en-docs/"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/java-en-docs/css/main.css"/><script src="/java-en-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/java-en-docs/"><h2 class="headerTitle">Bytom Java API文档</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/java-en-docs/docs/start" target="_self">Docs</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>API 中文文档</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">快速开始</h3><ul class=""><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/build">搭建节点</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/start">SDK环境配置</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">API 中文文档</h3><ul class=""><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/sign">tx-signer</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/key">Bytom.Key.API</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/account">Bytom.Account.API</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/java-en-docs/docs/asset">Bytom.Asset.API</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/transaction">Bytom.Transaction.API</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/wallet">Bytom.Wallet.API</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/access_token">Bytom.Access_token.API</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/block">Bytom.Block.API</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/gas">Bytom.Gas.API</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/message">Bytom.Message.API</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/feed">Bytom.Feed.API</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/net_info">Bytom.New_info.API</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/other">Bytom.Other.API</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Asset API</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="create-asset"></a><a href="#create-asset" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>create-asset</h2>
+<p>Create asset definition, it prepares for the issuance of asset.</p>
+<h4><a class="anchor" aria-hidden="true" id="parameters"></a><a href="#parameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<ul>
+<li><code>Array of String</code> - <em>root_xpubs</em>, xpub array.</li>
+<li><code>String</code> - <em>alias</em>, name of the asset.</li>
+<li><code>Integer</code> - <em>quorum</em>, the default value is <code>1</code>, threshold of keys that must sign a transaction to spend asset units controlled by the account.</li>
+</ul>
+<p>Optional</p>
+<ul>
+<li><code>Object</code> - <em>definition</em>, definition of asset.</li>
+<li><code>String</code> -  <em>issuance_program</em>, user-defined contract program.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="returns"></a><a href="#returns" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Returns</h4>
+<ul>
+<li><code>String</code> - <em>id</em>, asset id.</li>
+<li><code>String</code> - <em>alias</em>, name of the asset.</li>
+<li><code>String</code> - <em>issuance_program</em>, control program of the issuance of asset.</li>
+<li><code>Array of Object</code> - <em>keys</em>, information of asset pubkey.</li>
+<li><code>String</code> - <em>definition</em>, definition of asset.</li>
+<li><code>Integer</code> - <em>quorum</em>, threshold of keys that must sign a transaction to spend asset units controlled by the account.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="example"></a><a href="#example" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h4>
+<pre><code class="hljs css language-java">Client client = TestUtils.generateClient();
+List&lt;Account&gt; accountList = Account.list(client);
+String alias = <span class="hljs-string">"GOLD"</span>;
+List&lt;String&gt; xpubs = accountList.get(<span class="hljs-number">0</span>).xpubs;
+Asset.Builder builder = <span class="hljs-keyword">new</span> Asset.Builder()
+    .setAlias(alias)
+    .setQuorum(<span class="hljs-number">1</span>)
+    .setRootXpubs(xpubs);
+System.out.println(builder);
+</code></pre>
+<pre><code class="hljs css language-bash">// Result
+Builder{<span class="hljs-built_in">alias</span>=<span class="hljs-string">'GOLD'</span>, definition=null, rootXpubs=[872e6fbe0ad47b0ff6435bcc4c18fd0c00631afe6c4433938fd7059f32d9c26bb888d0f112cbc07880a1d9ef50111154fa34570233bda070503f6fbe94daf974], quorum=1, access_token=<span class="hljs-string">'null'</span>}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="get-asset"></a><a href="#get-asset" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>get-asset</h2>
+<p>Query detail asset by asset ID.</p>
+<h4><a class="anchor" aria-hidden="true" id="parameters-1"></a><a href="#parameters-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<ul>
+<li><code>String</code> - <em>id</em>, id of asset.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="returns-1"></a><a href="#returns-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Returns</h4>
+<ul>
+<li><code>String</code> - <em>id</em>, asset id.</li>
+<li><code>String</code> - <em>alias</em>, name of the asset.</li>
+<li><code>String</code> - <em>issuance_program</em>, control program of the issuance of asset.</li>
+<li><code>Integer</code> - <em>key_index</em>, index of key for xpub.</li>
+<li><code>Integer</code> - <em>quorum</em>, threshold of keys that must sign a transaction to spend asset units controlled by the account.</li>
+<li><code>Array of Object</code> - <em>xpubs</em>, pubkey array.</li>
+<li><code>String</code> - <em>type</em>, type of asset.</li>
+<li><code>Integer</code> - <em>vm_version</em>, version of VM.</li>
+<li><code>String</code> - <em>raw_definition_byte</em>, byte of asset definition.</li>
+<li><code>Object</code> - <em>definition</em>, description of asset.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="example-1"></a><a href="#example-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h4>
+<pre><code class="hljs css language-java">Client client = TestUtils.generateClient();
+Asset.QueryBuilder queryBuilder = <span class="hljs-keyword">new</span> Asset.QueryBuilder();
+String id = queryBuilder.list(client).get(<span class="hljs-number">1</span>).id;
+queryBuilder.setId(id);
+Asset asset = queryBuilder.get(client);
+</code></pre>
+<pre><code class="hljs css language-bash">// Result
+{<span class="hljs-string">"id"</span>:<span class="hljs-string">"57ba2e10543e35f682d4e47729da3c6da0372a94b4c6d04fe59bd389e2e68edc"</span>,<span class="hljs-string">"alias"</span>:<span class="hljs-string">"HELLOWORLD"</span>,<span class="hljs-string">"key_index"</span>:1,<span class="hljs-string">"xpubs"</span>:[<span class="hljs-string">"f6a16704f745a168642712060e6c5a69866147e21ec2447ae628f87d756bb68cc9b91405ad0a95f004090e864fde472f62ba97053ea109837bc89d63a64040d5"</span>],<span class="hljs-string">"quorum"</span>:1,<span class="hljs-string">"definition"</span>:{<span class="hljs-string">"decimals"</span>:8.0,<span class="hljs-string">"description"</span>:{},<span class="hljs-string">"name"</span>:<span class="hljs-string">"GOLD"</span>,<span class="hljs-string">"symbol"</span>:<span class="hljs-string">"GOLD"</span>},<span class="hljs-string">"vm_version"</span>:1,<span class="hljs-string">"type"</span>:<span class="hljs-string">"asset"</span>,<span class="hljs-string">"raw_definition_byte"</span>:<span class="hljs-string">"7b0a202022646563696d616c73223a20382c0a2020226465736372697074696f6e223a207b7d2c0a2020226e616d65223a2022474f4c44222c0a20202273796d626f6c223a2022474f4c44220a7d"</span>}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="list-assets"></a><a href="#list-assets" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>list-assets</h2>
+<p>Returns the list of all available assets.</p>
+<h4><a class="anchor" aria-hidden="true" id="parameters-2"></a><a href="#parameters-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<p>none</p>
+<h4><a class="anchor" aria-hidden="true" id="returns-2"></a><a href="#returns-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Returns</h4>
+<ul>
+<li><code>Array of Object</code>, asset array.
+<ul>
+<li><code>String</code> - <em>id</em>, asset id.</li>
+<li><code>String</code> - <em>alias</em>, name of the asset.</li>
+<li><code>String</code> - <em>issuance_program</em>, control program of the issuance of asset.</li>
+<li><code>Integer</code> - <em>key_index</em>, index of key for xpub.</li>
+<li><code>Integer</code> - <em>quorum</em>, threshold of keys that must sign a transaction to spend asset units controlled by the account.</li>
+<li><code>Array of Object</code> - <em>xpubs</em>, pubkey array.</li>
+<li><code>String</code> - <em>type</em>, type of asset.</li>
+<li><code>Integer</code> - <em>vm_version</em>, version of VM.</li>
+<li><code>String</code> - <em>raw_definition_byte</em>, byte of asset definition.</li>
+<li><code>Object</code> - <em>definition</em>, description of asset.</li>
+</ul></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="example-2"></a><a href="#example-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h4>
+<pre><code class="hljs css language-java">Client client = TestUtils.generateClient();
+Asset.QueryBuilder queryBuilder = <span class="hljs-keyword">new</span> Asset.QueryBuilder();
+List&lt;Asset&gt; assetList = queryBuilder.list(client);
+</code></pre>
+<pre><code class="hljs css language-bash">// Result
+[Asset{id=<span class="hljs-string">'ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff'</span>, <span class="hljs-built_in">alias</span>=<span class="hljs-string">'BTM'</span>, issuanceProgram=<span class="hljs-string">'null'</span>, keys=null, keyIndex=0, xpubs=null, quorum=0, definition={decimals=8.0, description=Bytom Official Issue, name=BTM, symbol=BTM}, vmVersion=1, <span class="hljs-built_in">type</span>=<span class="hljs-string">'internal'</span>, rawDefinitionByte=<span class="hljs-string">'7b0a202022646563696d616c73223a20382c0a2020226465736372697074696f6e223a20224279746f6d204f6666696369616c204973737565222c0a2020226e616d65223a202242544d222c0a20202273796d626f6c223a202242544d220a7d'</span>}, Asset{id=<span class="hljs-string">'57ba2e10543e35f682d4e47729da3c6da0372a94b4c6d04fe59bd389e2e68edc'</span>, <span class="hljs-built_in">alias</span>=<span class="hljs-string">'HELLOWORLD'</span>, issuanceProgram=<span class="hljs-string">'null'</span>, keys=null, keyIndex=1, xpubs=[f6a16704f745a168642712060e6c5a69866147e21ec2447ae628f87d756bb68cc9b91405ad0a95f004090e864fde472f62ba97053ea109837bc89d63a64040d5], quorum=1, definition={decimals=8.0, description={}, name=GOLD, symbol=GOLD}, vmVersion=1, <span class="hljs-built_in">type</span>=<span class="hljs-string">'asset'</span>, rawDefinitionByte=<span class="hljs-string">'7b0a202022646563696d616c73223a20382c0a2020226465736372697074696f6e223a207b7d2c0a2020226e616d65223a2022474f4c44222c0a20202273796d626f6c223a2022474f4c44220a7d'</span>}, Asset{id=<span class="hljs-string">'c2b370f20c418db3222254270f1c3f4d3a2d65c3fc8090c8a9005b5cf8289cda'</span>, <span class="hljs-built_in">alias</span>=<span class="hljs-string">'GOLD'</span>, issuanceProgram=<span class="hljs-string">'null'</span>, keys=null, keyIndex=2, xpubs=[872e6fbe0ad47b0ff6435bcc4c18fd0c00631afe6c4433938fd7059f32d9c26bb888d0f112cbc07880a1d9ef50111154fa34570233bda070503f6fbe94daf974], quorum=1, definition=null, vmVersion=1, <span class="hljs-built_in">type</span>=<span class="hljs-string">'asset'</span>, rawDefinitionByte=<span class="hljs-string">'7b7d'</span>}]
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="update-asset-alias"></a><a href="#update-asset-alias" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>update-asset-alias</h2>
+<p>Update asset alias by assetID.</p>
+<h4><a class="anchor" aria-hidden="true" id="parameters-3"></a><a href="#parameters-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<ul>
+<li><code>String</code> - <em>id</em>, id of asset.</li>
+<li><code>String</code> - <em>alias</em>, new alias of asset.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="returns-3"></a><a href="#returns-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Returns</h4>
+<p>none if the asset alias is updated success.</p>
+<h4><a class="anchor" aria-hidden="true" id="example-3"></a><a href="#example-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h4>
+<pre><code class="hljs css language-java">Client client = TestUtils.generateClient();
+Asset.QueryBuilder queryBuilder = <span class="hljs-keyword">new</span> Asset.QueryBuilder();
+String id = queryBuilder.list(client).get(<span class="hljs-number">1</span>).id;
+String alias = <span class="hljs-string">"HELLOWORLD"</span>;
+
+Asset.AliasUpdateBuilder aliasUpdateBuilder =
+    <span class="hljs-keyword">new</span> Asset.AliasUpdateBuilder()
+    .setAlias(alias)
+    .setAssetId(id);
+aliasUpdateBuilder.update(client);
+</code></pre>
+<pre><code class="hljs css language-bash">// Result
+[Asset{id=<span class="hljs-string">'57ba2e10543e35f682d4e47729da3c6da0372a94b4c6d04fe59bd389e2e68edc'</span>, <span class="hljs-built_in">alias</span>=<span class="hljs-string">'HELLOWORLD'</span>, issuanceProgram=<span class="hljs-string">'null'</span>, keys=null, keyIndex=1, xpubs=[f6a16704f745a168642712060e6c5a69866147e21ec2447ae628f87d756bb68cc9b91405ad0a95f004090e864fde472f62ba97053ea109837bc89d63a64040d5], quorum=1, definition={decimals=8.0, description={}, name=GOLD, symbol=GOLD}, vmVersion=1, <span class="hljs-built_in">type</span>=<span class="hljs-string">'asset'</span>, rawDefinitionByte=<span class="hljs-string">'7b0a202022646563696d616c73223a20382c0a2020226465736372697074696f6e223a207b7d2c0a2020226e616d65223a2022474f4c44222c0a20202273796d626f6c223a2022474f4c44220a7d'</span>}]
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="list-balances"></a><a href="#list-balances" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>list-balances</h2>
+<p>Returns the list of all available account balances.</p>
+<h4><a class="anchor" aria-hidden="true" id="parameters-4"></a><a href="#parameters-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<p>none</p>
+<h4><a class="anchor" aria-hidden="true" id="returns-4"></a><a href="#returns-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Returns</h4>
+<ul>
+<li><code>Array of Object</code>
+<ul>
+<li><code>String</code> - <em>account_id</em>, account id.</li>
+<li><code>String</code> - <em>account_alias</em>, name of account.</li>
+<li><code>String</code> - <em>asset_id</em>, asset id.</li>
+<li><code>String</code> - <em>asset_alias</em>, name of asset.</li>
+<li><code>Integer</code> - <em>amount</em>, specified asset balance of account.</li>
+</ul></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="example-4"></a><a href="#example-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h4>
+<p>list all the available unspent outputs:</p>
+<pre><code class="hljs css language-java">Client client = TestUtils.generateClient();
+List&lt;Balance&gt; balanceList = <span class="hljs-keyword">new</span> Balance.QueryBuilder().list(client);
+Assert.assertNotNull(balanceList);
+</code></pre>
+<pre><code class="hljs css language-bash">// Result
+[{<span class="hljs-string">"account_alias"</span>: <span class="hljs-string">"default"</span>,<span class="hljs-string">"account_id"</span>: <span class="hljs-string">"0BDQ9AP100A02"</span>,<span class="hljs-string">"amount"</span>: 35508000000000,<span class="hljs-string">"asset_alias"</span>: <span class="hljs-string">"BTM"</span>,<span class="hljs-string">"asset_id"</span>: <span class="hljs-string">"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"</span>},{<span class="hljs-string">"account_alias"</span>: <span class="hljs-string">"alice"</span>,<span class="hljs-string">"account_id"</span>: <span class="hljs-string">"0BDQARM800A04"</span>,<span class="hljs-string">"amount"</span>: 60000000000,<span class="hljs-string">"asset_alias"</span>: <span class="hljs-string">"BTM"</span>, <span class="hljs-string">"asset_id"</span>: <span class="hljs-string">"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"</span>}]
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="list-unspent-outputs"></a><a href="#list-unspent-outputs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>list-unspent-outputs</h2>
+<p>Returns the sub list of all available unspent outputs for all accounts in your wallet.</p>
+<h4><a class="anchor" aria-hidden="true" id="parameters-5"></a><a href="#parameters-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<ul>
+<li><code>String</code> - <em>id</em> , id of unspent output.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="returns-5"></a><a href="#returns-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Returns</h4>
+<ul>
+<li><code>Array of Object</code>, unspent output array.
+<ul>
+<li><code>String</code> - <em>account_id</em>, account id.</li>
+<li><code>String</code> - <em>account_alias</em>, name of account.</li>
+<li><code>String</code> - <em>asset_id</em>, asset id.</li>
+<li><code>String</code> - <em>asset_alias</em>, name of asset.</li>
+<li><code>Integer</code> - <em>amount</em>, specified asset balance of account.</li>
+<li><code>String</code> - <em>address</em>, address of account.</li>
+<li><code>Boolean</code> - <em>change</em>, whether the account address is change.</li>
+<li><code>String</code> - <em>id</em>, unspent output id.</li>
+<li><code>String</code> - <em>program</em>, program of account.</li>
+<li><code>String</code> - <em>control_program_index</em>, index of program.</li>
+<li><code>String</code> - <em>source_id</em>, source unspent output id.</li>
+<li><code>String</code> - <em>source_pos</em>, position of source unspent output id in block.</li>
+<li><code>String</code> - <em>valid_height</em>, valid height.</li>
+</ul></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="example-5"></a><a href="#example-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h4>
+<p>list all the available unspent outputs:</p>
+<pre><code class="hljs css language-java">Balance balance = <span class="hljs-keyword">new</span> Balance.QueryBuilder().listByAssetAlias(client, <span class="hljs-string">"BTM"</span>);
+Assert.assertNotNull(balance);
+</code></pre>
+<pre><code class="hljs css language-bash">// Result
+[
+  {
+    <span class="hljs-string">"account_alias"</span>: <span class="hljs-string">"alice"</span>,
+    <span class="hljs-string">"account_id"</span>: <span class="hljs-string">"0BKBR6VR00A06"</span>,
+    <span class="hljs-string">"address"</span>: <span class="hljs-string">"bm1qv3htuvug7qdv46ywcvvzytrwrsyg0swltfa0dm"</span>,
+    <span class="hljs-string">"amount"</span>: 2000,
+    <span class="hljs-string">"asset_alias"</span>: <span class="hljs-string">"GOLD"</span>,
+    <span class="hljs-string">"asset_id"</span>: <span class="hljs-string">"1883cce6aab82cf9af8cd085a3115dd4a92cdb8e6a9152acd73d7ae4adb9030a"</span>,
+    <span class="hljs-string">"change"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-string">"control_program_index"</span>: 2,
+    <span class="hljs-string">"id"</span>: <span class="hljs-string">"58f29f0f85f7bd2a91088bcbe536dee41cd0642dfb1480d3a88589bdbfd642d9"</span>,
+    <span class="hljs-string">"program"</span>: <span class="hljs-string">"0014646ebe3388f01acae88ec318222c6e1c0887c1df"</span>,
+    <span class="hljs-string">"source_id"</span>: <span class="hljs-string">"5988c1630c1f325e69bb92cb4b19af14286aa107311bc64b8f1a54629a33e0f4"</span>,
+    <span class="hljs-string">"source_pos"</span>: 2,
+    <span class="hljs-string">"valid_height"</span>: 0
+  },
+  {
+    <span class="hljs-string">"account_alias"</span>: <span class="hljs-string">"default"</span>,
+    <span class="hljs-string">"account_id"</span>: <span class="hljs-string">"0BKBR2D2G0A02"</span>,
+    <span class="hljs-string">"address"</span>: <span class="hljs-string">"bm1qx7ylnhszg24995d5e0nftu9e87kt9vnxcn633r"</span>,
+    <span class="hljs-string">"amount"</span>: 624000000000,
+    <span class="hljs-string">"asset_alias"</span>: <span class="hljs-string">"BTM"</span>,
+    <span class="hljs-string">"asset_id"</span>: <span class="hljs-string">"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"</span>,
+    <span class="hljs-string">"change"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-string">"control_program_index"</span>: 12,
+    <span class="hljs-string">"id"</span>: <span class="hljs-string">"5af9d3c9b69470983377c1fc0c9125c4ac3bfd32c8d505f2a6042aade8503bc9"</span>,
+    <span class="hljs-string">"program"</span>: <span class="hljs-string">"00143789f9de0242aa52d1b4cbe695f0b93facb2b266"</span>,
+    <span class="hljs-string">"source_id"</span>: <span class="hljs-string">"233d1dd49e591980f98e11f333c6c28a867e78448e272011f045131df5aa260b"</span>,
+    <span class="hljs-string">"source_pos"</span>: 0,
+    <span class="hljs-string">"valid_height"</span>: 12
+  }
+]
+</code></pre>
+<p>list the unspent output matching the given id:</p>
+<pre><code class="hljs css language-java">List&lt;Balance&gt; balanceList = <span class="hljs-keyword">new</span> Balance.QueryBuilder().listByAccountAlias(client, <span class="hljs-string">"test"</span>);
+Assert.assertNotNull(balanceList);
+</code></pre>
+<pre><code class="hljs css language-bash">// Result
+{
+  <span class="hljs-string">"account_alias"</span>: <span class="hljs-string">"alice"</span>,
+  <span class="hljs-string">"account_id"</span>: <span class="hljs-string">"0BKBR6VR00A06"</span>,
+  <span class="hljs-string">"address"</span>: <span class="hljs-string">"bm1qv3htuvug7qdv46ywcvvzytrwrsyg0swltfa0dm"</span>,
+  <span class="hljs-string">"amount"</span>: 2000,
+  <span class="hljs-string">"asset_alias"</span>: <span class="hljs-string">"GOLD"</span>,
+  <span class="hljs-string">"asset_id"</span>: <span class="hljs-string">"1883cce6aab82cf9af8cd085a3115dd4a92cdb8e6a9152acd73d7ae4adb9030a"</span>,
+  <span class="hljs-string">"change"</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-string">"control_program_index"</span>: 2,
+  <span class="hljs-string">"id"</span>: <span class="hljs-string">"58f29f0f85f7bd2a91088bcbe536dee41cd0642dfb1480d3a88589bdbfd642d9"</span>,
+  <span class="hljs-string">"program"</span>: <span class="hljs-string">"0014646ebe3388f01acae88ec318222c6e1c0887c1df"</span>,
+  <span class="hljs-string">"source_id"</span>: <span class="hljs-string">"5988c1630c1f325e69bb92cb4b19af14286aa107311bc64b8f1a54629a33e0f4"</span>,
+  <span class="hljs-string">"source_pos"</span>: 2,
+  <span class="hljs-string">"valid_height"</span>: 0
+}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/java-en-docs/docs/account"><span class="arrow-prev">← </span><span>Bytom.Account.API</span></a><a class="docs-next button" href="/java-en-docs/docs/transaction"><span>Bytom.Transaction.API</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#create-asset">create-asset</a></li><li><a href="#get-asset">get-asset</a></li><li><a href="#list-assets">list-assets</a></li><li><a href="#update-asset-alias">update-asset-alias</a></li><li><a href="#list-balances">list-balances</a></li><li><a href="#list-unspent-outputs">list-unspent-outputs</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap">//</section>//<section class="copyright">Copyright © 2019 Bytom Community</section></footer></div></body></html>

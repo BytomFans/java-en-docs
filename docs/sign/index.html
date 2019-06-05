@@ -1,0 +1,242 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>tx-signer · Bytom Java API文档</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;严格来说，tx-signer并不属于SDK，它是bytomd中构建交易、对交易签名两大模块的java实现版。因此，若想用tx-signer对交易进行离线签名，需要由你在本地保管好自己的私钥。&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="tx-signer · Bytom Java API文档"/><meta property="og:type" content="website"/><meta property="og:url" content="https://bytomfans.github.io/java-en-docs/"/><meta property="og:description" content="&lt;p&gt;严格来说，tx-signer并不属于SDK，它是bytomd中构建交易、对交易签名两大模块的java实现版。因此，若想用tx-signer对交易进行离线签名，需要由你在本地保管好自己的私钥。&lt;/p&gt;
+"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/java-en-docs/"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/java-en-docs/css/main.css"/><script src="/java-en-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/java-en-docs/"><h2 class="headerTitle">Bytom Java API文档</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/java-en-docs/docs/start" target="_self">Docs</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>API 中文文档</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">快速开始</h3><ul class=""><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/build">搭建节点</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/start">SDK环境配置</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">API 中文文档</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/java-en-docs/docs/sign">tx-signer</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/key">Bytom.Key.API</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/account">Bytom.Account.API</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/asset">Bytom.Asset.API</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/transaction">Bytom.Transaction.API</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/wallet">Bytom.Wallet.API</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/access_token">Bytom.Access_token.API</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/block">Bytom.Block.API</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/gas">Bytom.Gas.API</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/message">Bytom.Message.API</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/feed">Bytom.Feed.API</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/net_info">Bytom.New_info.API</a></li><li class="navListItem"><a class="navItem" href="/java-en-docs/docs/other">Bytom.Other.API</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">tx-signer</h1></header><article><div><span><p>严格来说，tx-signer并不属于SDK，它是bytomd中构建交易、对交易签名两大模块的java实现版。因此，若想用tx-signer对交易进行离线签名，需要由你在本地保管好自己的私钥。</p>
+<p>如果你的目的是完全脱离于bytomd全节点，可能需要自己做更多额外的工作。比如，在构建交易时，需要花费若干个utxo（Unspent Transaction Output）作为交易的输入，如果没有全节点则需要自身来维护utxo。当使用tx-signer构建完成一笔交易并签名后，若没有全节点的帮助，也需要自己实现P2P网络协议将交易广播到其他节点。</p>
+<p>本文不会对以上技术细节进行讨论，而是利用bytomd全节点查询可用的utxo构建交易，对交易进行签名并序列化后，同样使用bytomd提交交易。</p>
+<h2><a class="anchor" aria-hidden="true" id="准备工作"></a><a href="#准备工作" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>准备工作</h2>
+<h3><a class="anchor" aria-hidden="true" id="将maven依赖引入到你的项目中"></a><a href="#将maven依赖引入到你的项目中" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>将Maven依赖引入到你的项目中</h3>
+<p>1.使用github获取SDK源码</p>
+<pre><code class="hljs css language-bash">git <span class="hljs-built_in">clone</span> https://github.com/Bytom/bytom-java-sdk.git
+</code></pre>
+<p>2.进入SDK文件夹，使用maven把源码打包成JAR包并安装到本地的Maven仓库</p>
+<pre><code class="hljs css language-bash"><span class="hljs-built_in">cd</span> bytom-java-sdk/
+</code></pre>
+<pre><code class="hljs css language-bash">mvn clean install -DskipTests  
+</code></pre>
+<p>3.在你的项目目录下的<code>pom.xml</code>文件中添加依赖。其中，第一个依赖是bytomd api的封装，可用于查询可用的utxo以及提交交易；第二个依赖用于构建交易以及对交易进行离线签名。</p>
+<pre><code class="hljs css language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.bytom<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>java-sdk<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.bytom<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>tx-signer<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="构建交易"></a><a href="#构建交易" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>构建交易</h2>
+<h2><a class="anchor" aria-hidden="true" id="普通交易"></a><a href="#普通交易" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>普通交易</h2>
+<p>1.查询可用的UTXO</p>
+<p>在本文中，以下将全部使用全节点来查询可用的UTXO，你也可以构建一套自己的utxo维护方案。</p>
+<pre><code class="hljs css language-java">Client client = Client.generateClient();
+UnspentOutput.QueryBuilder builder = <span class="hljs-keyword">new</span> UnspentOutput.QueryBuilder();
+builder.accountAlias = <span class="hljs-string">"bytom"</span>;
+List&lt;UnspentOutput&gt; outputs = builder.list(client);
+</code></pre>
+<p>利用SDK只需要四行代码就能查询可用的UTXO，在QueryBuilder中可以指定是否为未确认的utxo（默认false），也可以通过from和count来进行分页查询（默认查询所有）。
+假设在当前账户下查询得到这样一个UTXO：</p>
+<pre><code class="hljs css language-json">{
+    <span class="hljs-attr">"account_alias"</span>: <span class="hljs-string">"bytom"</span>,
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"ffdc59d0478277298de4afa458dfa7623c051a46b7a84939fb8227083411b156"</span>,
+    <span class="hljs-attr">"asset_id"</span>: <span class="hljs-string">"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"</span>,
+    <span class="hljs-attr">"asset_alias"</span>: <span class="hljs-string">"BTM"</span>,
+    <span class="hljs-attr">"amount"</span>: <span class="hljs-number">41250000000</span>,
+    <span class="hljs-attr">"account_id"</span>: <span class="hljs-string">"0G1R52O1G0A02"</span>,
+    <span class="hljs-attr">"address"</span>: <span class="hljs-string">"sm1qxls6ajp6fejc0j5kp8jwt2nj3kmsqazfumrkrr"</span>,
+    <span class="hljs-attr">"control_program_index"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"program"</span>: <span class="hljs-string">"001437e1aec83a4e6587ca9609e4e5aa728db7007449"</span>,
+    <span class="hljs-attr">"source_id"</span>: <span class="hljs-string">"2d3a5d920833778cc7c65d7c96fe5f3c4a1a61aa086ee093f44a0522dd499a34"</span>,
+    <span class="hljs-attr">"source_pos"</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-attr">"valid_height"</span>: <span class="hljs-number">4767</span>,
+    <span class="hljs-attr">"change"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"derive_rule"</span>: <span class="hljs-number">0</span>
+}
+</code></pre>
+<p>2.构建交易</p>
+<p>现在需要往<code>0014c832e1579b4f96dc12dcfff39e8fe69a62d3f516</code>这个control program转100个BTM。代码如下：</p>
+<pre><code class="hljs css language-java">String btmAssetID = <span class="hljs-string">"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"</span>;
+<span class="hljs-comment">// 下面的字段与utxo中的字段一一对应</span>
+SpendInput input = <span class="hljs-keyword">new</span> SpendInput();
+input.setAssetId(btmAssetID);
+input.setAmount(<span class="hljs-number">41250000000L</span>);
+input.setProgram(<span class="hljs-string">"001437e1aec83a4e6587ca9609e4e5aa728db7007449"</span>);
+input.setSourcePosition(<span class="hljs-number">0</span>);
+input.setSourceID(<span class="hljs-string">"2d3a5d920833778cc7c65d7c96fe5f3c4a1a61aa086ee093f44a0522dd499a34"</span>);
+input.setChange(<span class="hljs-keyword">false</span>);
+input.setControlProgramIndex(<span class="hljs-number">1</span>);
+<span class="hljs-comment">// 选择使用BIP32还是BIP44来派生地址，默认BIP44</span>
+input.setBipProtocol(BIPProtocol.BIP44);
+<span class="hljs-comment">// 账户对应的密钥索引</span>
+input.setKeyIndex(<span class="hljs-number">1</span>);
+<span class="hljs-comment">// 自身本地保管的私钥，用于对交易进行签名</span>
+input.setRootPrivateKey(<span class="hljs-string">"4864bae85cf38bfbb347684abdbc01e311a24f99e2c7fe94f3c071d9c83d8a5a349722316972e382c339b79b7e1d83a565c6b3e7cf46847733a47044ae493257"</span>);
+
+Transaction tx = <span class="hljs-keyword">new</span> Transaction.Builder()
+                .addInput(input)
+                <span class="hljs-comment">// 加入需要转入的output</span>
+                .addOutput(<span class="hljs-keyword">new</span> Output(btmAssetID, <span class="hljs-number">10000000000L</span>, <span class="hljs-string">"0014c832e1579b4f96dc12dcfff39e8fe69a62d3f516"</span>))
+                <span class="hljs-comment">// 剩余的BTM用于找零</span>
+                .addOutput(<span class="hljs-keyword">new</span> Output(btmAssetID, <span class="hljs-number">31250000000L</span>, <span class="hljs-string">"0014bb8a039726df1b649738e9973db14a4b4fd4becf"</span>))
+                .setTimeRange(<span class="hljs-number">0</span>)
+                .build();
+
+String rawTransaction = tx.rawTransaction();
+</code></pre>
+<p>对交易调用build方法后，自动会对交易进行本地的验证和签名操作。注意，在本地只是做简单的字段验证，本地验证通过并不代表交易合法。最后对交易调用rawTransaction方法返回交易序列化后的字符串。</p>
+<p>3.提交交易</p>
+<p>利用bytomd全节点来提交交易：</p>
+<pre><code class="hljs css language-java">HashMap&lt;String, Object&gt; body = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+body.put(<span class="hljs-string">"raw_transaction"</span>, <span class="hljs-string">"070100010160015e4b5cb973f5bef4eadde4c89b92ee73312b940e84164da0594149554cc8a2adeaffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff80c480c1240201160014cb9f2391bafe2bc1159b2c4c8a0f17ba1b4dd94e6302401cb779288be890a28c5209036da1a27d9fe74a51c38e0a10db4817bcf4fd05f68580239eea7dcabf19f144c77bf13d3674b5139aa51a99ba58118386c190af0e20bcbe020b05e1b7d0825953d92bf47897be08cd7751a37adb95d6a2e5224f55ab02013dffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff80b095e42001160014a82f02bc37bc5ed87d5f9fca02f8a6a7d89cdd5c000149ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff80d293ad03012200200824e931fb806bd77fdcd291aad3bd0a4493443a4120062bd659e64a3e0bac6600"</span>);
+Transaction.SubmitResponse response = client.request(<span class="hljs-string">"submit-transaction"</span>, body, Transaction.SubmitResponse.class);
+</code></pre>
+<p>交易提交成功后，response返回交易ID。</p>
+<h3><a class="anchor" aria-hidden="true" id="发行资产交易"></a><a href="#发行资产交易" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>发行资产交易</h3>
+<p>1.查询可用的UTXO</p>
+<p>发行资产时，需要使用BTM作为手续费，因此第一步同样需要查询当前账户下可用的UTXO，由于上面已经提到，这里不再赘述。</p>
+<p>2.查询需要发行的资产信息</p>
+<p>例如，需要发行的资产id为<code>7b38dc897329a288ea31031724f5c55bcafec80468a546955023380af2faad14</code></p>
+<pre><code class="hljs css language-java">Asset.QueryBuilder builder = <span class="hljs-keyword">new</span> Asset.QueryBuilder();
+builder.setId(<span class="hljs-string">"7b38dc897329a288ea31031724f5c55bcafec80468a546955023380af2faad14"</span>);
+List&lt;Asset&gt; assets = builder.list(client);
+</code></pre>
+<p>假设查询得到的资产信息如下：</p>
+<pre><code class="hljs css language-json">{
+            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"asset"</span>,
+            <span class="hljs-attr">"xpubs"</span>: [
+                <span class="hljs-string">"5ff7f79f0fd4eb9ccb17191b0a1ac9bed5b4a03320a06d2ff8170dd51f9ad9089c4038ec7280b5eb6745ef3d36284e67f5cf2ed2a0177d462d24abf53c0399ed"</span>
+            ],
+            <span class="hljs-attr">"quorum"</span>: <span class="hljs-number">1</span>,
+            <span class="hljs-attr">"key_index"</span>: <span class="hljs-number">3</span>,
+            <span class="hljs-attr">"derive_rule"</span>: <span class="hljs-number">0</span>,
+            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"7b38dc897329a288ea31031724f5c55bcafec80468a546955023380af2faad14"</span>,
+            <span class="hljs-attr">"alias"</span>: <span class="hljs-string">"棒棒鸡"</span>,
+            <span class="hljs-attr">"vm_version"</span>: <span class="hljs-number">1</span>,
+            <span class="hljs-attr">"issue_program"</span>: <span class="hljs-string">"ae20db11f9dfa39c9e66421c530fe027218edd3d5b1cd98f24c826f4d9c0cd131a475151ad"</span>,
+            <span class="hljs-attr">"raw_definition_byte"</span>: <span class="hljs-string">"7b0a202022646563696d616c73223a20382c0a2020226465736372697074696f6e223a207b7d2c0a2020226e616d65223a2022222c0a20202273796d626f6c223a2022220a7d"</span>,
+            <span class="hljs-attr">"definition"</span>: {
+                <span class="hljs-attr">"decimals"</span>: <span class="hljs-number">8</span>,
+                <span class="hljs-attr">"description"</span>: {},
+                <span class="hljs-attr">"name"</span>: <span class="hljs-string">""</span>,
+                <span class="hljs-attr">"symbol"</span>: <span class="hljs-string">""</span>
+            }
+}
+</code></pre>
+<p>3.构建交易</p>
+<p>现在需要发行1000个棒棒鸡资产：</p>
+<pre><code class="hljs css language-java">IssuanceInput issuanceInput = <span class="hljs-keyword">new</span> IssuanceInput();
+issuanceInput.setAssetId(<span class="hljs-string">"7b38dc897329a288ea31031724f5c55bcafec80468a546955023380af2faad14"</span>);
+issuanceInput.setAmount(<span class="hljs-number">100000000000L</span>);
+<span class="hljs-comment">// issue program</span>
+issuanceInput.setProgram(<span class="hljs-string">"ae20db11f9dfa39c9e66421c530fe027218edd3d5b1cd98f24c826f4d9c0cd131a475151ad"</span>);
+<span class="hljs-comment">// 可以不指定，不指定时将随机生成一个</span>
+issuanceInput.setNonce(<span class="hljs-string">"ac9d5a527f5ab00a"</span>);
+issuanceInput.setKeyIndex(<span class="hljs-number">5</span>);
+<span class="hljs-comment">// raw definition byte</span>
+issuanceInput.setRawAssetDefinition(<span class="hljs-string">"7b0a202022646563696d616c73223a20382c0a2020226465736372697074696f6e223a207b7d2c0a2020226e616d65223a2022222c0a20202273796d626f6c223a2022220a7d"</span>);
+<span class="hljs-comment">// 该资产对应的私钥</span>
+issuanceInput.setRootPrivateKey(<span class="hljs-string">"4864bae85cf38bfbb347684abdbc01e311a24f99e2c7fe94f3c071d9c83d8a5a349722316972e382c339b79b7e1d83a565c6b3e7cf46847733a47044ae493257"</span>);
+
+<span class="hljs-comment">// 创建一个spend input作为手续费，假设当前有一个100BTM的utxo，并且使用1BTM作为手续费，则后续还要创建99BTM的找零地址</span>
+SpendInput feeInput = <span class="hljs-keyword">new</span> SpendInput(btmAssetID, <span class="hljs-number">10000000000L</span>, <span class="hljs-string">"0014cb9f2391bafe2bc1159b2c4c8a0f17ba1b4dd94e"</span>);
+feeInput.setKeyIndex(<span class="hljs-number">1</span>);
+feeInput.setChange(<span class="hljs-keyword">true</span>);
+feeInput.setSourceID(<span class="hljs-string">"4b5cb973f5bef4eadde4c89b92ee73312b940e84164da0594149554cc8a2adea"</span>);
+feeInput.setSourcePosition(<span class="hljs-number">2</span>);
+feeInput.setControlProgramIndex(<span class="hljs-number">457</span>);
+feeInput.setRootPrivateKey(<span class="hljs-string">"4864bae85cf38bfbb347684abdbc01e311a24f99e2c7fe94f3c071d9c83d8a5a349722316972e382c339b79b7e1d83a565c6b3e7cf46847733a47044ae493257"</span>);
+
+Transaction tx = <span class="hljs-keyword">new</span> Transaction.Builder()
+                .addInput(issuanceInput)
+                .addInput(feeInput)
+                <span class="hljs-comment">// 该output用于接收发行的资产</span>
+                .addOutput(<span class="hljs-keyword">new</span> Output(<span class="hljs-string">"7b38dc897329a288ea31031724f5c55bcafec80468a546955023380af2faad14"</span>, <span class="hljs-number">100000000000L</span>, <span class="hljs-string">"001437e1aec83a4e6587ca9609e4e5aa728db7007449"</span>))
+                <span class="hljs-comment">// 找零</span>
+                .addOutput(<span class="hljs-keyword">new</span> Output(btmAssetID, <span class="hljs-number">9800000000L</span>, <span class="hljs-string">"00148be1104e04734e5edaba5eea2e85793896b77c56"</span>))
+                .setTimeRange(<span class="hljs-number">0</span>)
+                .build();
+</code></pre>
+<p>4.提交交易</p>
+<p>提交交易的方式与普通交易一致。</p>
+<h3><a class="anchor" aria-hidden="true" id="销毁资产交易"></a><a href="#销毁资产交易" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>销毁资产交易</h3>
+<p>销毁资产跟发行资产类似，同样需要BTM作为手续费。</p>
+<p>1.查询可用的utxo</p>
+<p>查询方式与普通交易一致。</p>
+<p>2.构建交易</p>
+<p>这里以销毁一个BTM为例，假设查询得到一个100BTM的utxo：</p>
+<pre><code class="hljs css language-java"><span class="hljs-comment">// 查询得到一个100BTM的utxo作为输入</span>
+SpendInput input = <span class="hljs-keyword">new</span> SpendInput(btmAssetID, <span class="hljs-number">10000000000L</span>, <span class="hljs-string">"0014f1dc52048f439ac7fd74f8106a21da78f00de48f"</span>);
+input.setRootPrivateKey(rootKey);
+input.setChange(<span class="hljs-keyword">true</span>);
+input.setKeyIndex(<span class="hljs-number">1</span>);
+input.setControlProgramIndex(<span class="hljs-number">41</span>);
+input.setSourceID(<span class="hljs-string">"0b2cff11d1d056d95237a5f2d06059e5395e86f60e69c1e8201ea624911c0c65"</span>);
+input.setSourcePosition(<span class="hljs-number">0</span>);
+
+<span class="hljs-comment">// 销毁资产时，可添加一段附加的文本</span>
+String arbitrary = <span class="hljs-string">"77656c636f6d65efbc8ce6aca2e8bf8ee69da5e588b0e58e9fe5ad90e4b896e7958c"</span>;
+<span class="hljs-comment">// 销毁99个BTM，剩余1个BTM作为手续费</span>
+Output output = Output.newRetireOutput(btmAssetID, <span class="hljs-number">9900000000L</span>, arbitrary);
+
+Transaction transaction = <span class="hljs-keyword">new</span> Transaction.Builder()
+                .addInput(input)
+                .addOutput(output)
+                .setTimeRange(<span class="hljs-number">2000000</span>)
+                .build();
+
+String rawTransaction = transaction.rawTransaction();
+</code></pre>
+<p>3.提交交易</p>
+<p>提交交易的方式与普通交易一致。</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/java-en-docs/docs/start"><span class="arrow-prev">← </span><span>SDK环境配置</span></a><a class="docs-next button" href="/java-en-docs/docs/key"><span>Bytom.Key.API</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#准备工作">准备工作</a><ul class="toc-headings"><li><a href="#将maven依赖引入到你的项目中">将Maven依赖引入到你的项目中</a></li></ul></li><li><a href="#构建交易">构建交易</a></li><li><a href="#普通交易">普通交易</a><ul class="toc-headings"><li><a href="#发行资产交易">发行资产交易</a></li><li><a href="#销毁资产交易">销毁资产交易</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap">//</section>//<section class="copyright">Copyright © 2019 Bytom Community</section></footer></div></body></html>
