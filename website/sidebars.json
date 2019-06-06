@@ -1,11 +1,11 @@
 {
     "docs": {
-        "快速开始": [
+        "quick start": [
             "build",
             "start"
         ],
 
-        "API 中文文档": [
+        "API": [
             "sign",
             "key",
             "account",

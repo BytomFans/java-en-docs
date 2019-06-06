@@ -1,7 +1,7 @@
 ---
 id: build
 title: Build Bytom
-sidebar_label: 搭建节点
+sidebar_label: Build Bytom
 ---
 
 ## Building from source

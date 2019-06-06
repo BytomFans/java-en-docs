@@ -19,7 +19,7 @@ const users = [{
 }, ];
 
 const siteConfig = {
-    title: 'Bytom Java API文档', // Title for your website.
+    title: 'Bytom Java API', // Title for your website.
     tagline: 'A website for Bytom Java SDK',
     url: 'https://bytomfans.github.io', // Your website URL
     baseUrl: '/java-en-docs/', // Base URL for your project */
